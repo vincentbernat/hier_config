@@ -90,6 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../hier_config.helpers/">hier_config.helpers package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">hier_config package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../hier_config.constants/">hier_config.constants package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../hier_config.helpers/">hier_config.helpers package</a></li>
 </ul>
 </li>
@@ -184,6 +185,10 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../hier_config.constants/">hier_config.constants package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hier_config.constants/#module-hier_config.constants">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../hier_config.helpers/">hier_config.helpers package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../hier_config.helpers/#module-hier_config.helpers">Module contents</a></li>
 </ul>
@@ -540,28 +545,35 @@ very slow and should be avoided where possible.</p>
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hier_config" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hier_config.HierarchicalConfigurationRoot">
-<em class="property">class </em><code class="descclassname">hier_config.</code><code class="descname">HierarchicalConfigurationRoot</code><span class="sig-paren">(</span><em>host</em>, <em>os</em>, <em>hier_options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HierarchicalConfigurationRoot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HierarchicalConfigurationRoot" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hier_config.</code><code class="descname">HierarchicalConfigurationRoot</code><span class="sig-paren">(</span><em>host</em>, <em>os</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HierarchicalConfigurationRoot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HierarchicalConfigurationRoot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hier_config.hc_child.HierarchicalConfiguration" title="hier_config.hc_child.HierarchicalConfiguration"><code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.hc_child.HierarchicalConfiguration</span></code></a></p>
 <p>A class for representing and comparing Cisco configurations in a
 hierarchical tree data structure.</p>
 <p>Example usage:</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
 
-<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HIER_CONF_DIR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span>
+    <span class="s1">&#39;tests&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;conf&#39;</span>
+<span class="p">)</span>
+
 <span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">HierarchicalConfigurationRoot</span>
 
 <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;aggr101a.dfw1&#39;</span>
-<span class="n">hier_options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/hier_options.yml&#39;</span><span class="p">))</span>
+<span class="n">os</span> <span class="o">=</span> <span class="s1">&#39;ios&#39;</span>
 
 <span class="c1"># Build HierarchicalConfigurationRoot object for the Running Config</span>
 
-<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">hier_options</span><span class="p">)</span>
-<span class="n">running_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/running_config.conf&#39;</span><span class="p">)</span>
+<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">os</span><span class="p">)</span>
+<span class="n">running_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/running_config.conf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Build HierarchicalConfiguration object for the Compiled Config</span>
 
-<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">hier_options</span><span class="p">)</span>
-<span class="n">compiled_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/compiled_config.conf&#39;</span><span class="p">)</span>
+<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">os</span><span class="p">)</span>
+<span class="n">compiled_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/compiled_config.conf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Build HierarchicalConfiguration object for the Remediation Config</span>
 
@@ -574,7 +586,7 @@ hierarchical tree data structure.</p>
 </div>
 <p>See:</p>
 <blockquote>
-<div><p>./tests/files/test_tags_ios.yml and ./tests/files/test_options_ios.yml</p>
+<div><p>./tests/conf/hierarchical_configuration_tags_* and ./conf/hierarchical_configuration_options_*</p>
 <p>for test examples of options and tags.</p>
 </div></blockquote>
 <dl class="method">

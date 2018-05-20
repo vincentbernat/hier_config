@@ -149,9 +149,8 @@
   <h1>Source code for hier_config</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">hier_config.hc_child</span> <span class="k">import</span> <span class="n">HierarchicalConfiguration</span>
 
+<span class="kn">import</span> <span class="nn">hier_config.constants</span> <span class="k">as</span> <span class="nn">C</span>
 <span class="kn">import</span> <span class="nn">re</span>
-
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.0.1&#39;</span>
 
 
 <div class="viewcode-block" id="HierarchicalConfigurationRoot"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HierarchicalConfigurationRoot">[docs]</a><span class="k">class</span> <span class="nc">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">HierarchicalConfiguration</span><span class="p">):</span>
@@ -166,21 +165,28 @@
 
 <span class="sd">        # Setup basic environment</span>
 
-<span class="sd">        import yaml</span>
+<span class="sd">        import os</span>
+
+<span class="sd">        os.environ[&#39;HIER_CONF_DIR&#39;] = os.path.join(</span>
+<span class="sd">            os.path.dirname(os.path.realpath(__file__)),</span>
+<span class="sd">            &#39;tests&#39;,</span>
+<span class="sd">            &#39;conf&#39;</span>
+<span class="sd">        )</span>
+
 <span class="sd">        from hier_config import HierarchicalConfigurationRoot</span>
 
 <span class="sd">        host = &#39;aggr101a.dfw1&#39;</span>
-<span class="sd">        hier_options = yaml.load(open(&#39;/path/to/hier_options.yml&#39;))</span>
+<span class="sd">        os = &#39;ios&#39;</span>
 
 <span class="sd">        # Build HierarchicalConfigurationRoot object for the Running Config</span>
 
-<span class="sd">        running_config_hier = HierarchicalConfigurationRoot(host, hier_options)</span>
-<span class="sd">        running_config_hier.load_from_file(&#39;./tests/files/running_config.conf&#39;)</span>
+<span class="sd">        running_config_hier = HierarchicalConfigurationRoot(host, os)</span>
+<span class="sd">        running_config_hier.load_from_file(&#39;./tests/running_config.conf&#39;)</span>
 
 <span class="sd">        # Build HierarchicalConfiguration object for the Compiled Config</span>
 
-<span class="sd">        compiled_config_hier = HierarchicalConfigurationRoot(host, hier_options)</span>
-<span class="sd">        compiled_config_hier.load_from_file(&#39;./tests/files/compiled_config.conf&#39;)</span>
+<span class="sd">        compiled_config_hier = HierarchicalConfigurationRoot(host, os)</span>
+<span class="sd">        compiled_config_hier.load_from_file(&#39;./tests/compiled_config.conf&#39;)</span>
 
 <span class="sd">        # Build HierarchicalConfiguration object for the Remediation Config</span>
 
@@ -192,16 +198,15 @@
 
 <span class="sd">    See:</span>
 
-<span class="sd">        ./tests/files/test_tags_ios.yml and ./tests/files/test_options_ios.yml</span>
+<span class="sd">        ./tests/conf/hierarchical_configuration_tags_* and ./conf/hierarchical_configuration_options_*</span>
 
 <span class="sd">        for test examples of options and tags.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">hier_options</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">os</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_host</span> <span class="o">=</span> <span class="n">host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="n">os</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hier_options</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">hier_options</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">children_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -254,7 +259,7 @@
 <div class="viewcode-block" id="HierarchicalConfigurationRoot.load_from_string"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HierarchicalConfigurationRoot.load_from_string">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_text</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Create HierarchicalConfiguration nested objects from text &quot;&quot;&quot;</span>
 
-        <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hier_options</span><span class="p">[</span><span class="s1">&#39;full_text_sub&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span><span class="n">HIER_OPTIONS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">os</span><span class="p">][</span><span class="s1">&#39;full_text_sub&#39;</span><span class="p">]:</span>
             <span class="n">config_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
                 <span class="n">sub</span><span class="p">[</span><span class="s1">&#39;search&#39;</span><span class="p">],</span>
                 <span class="n">sub</span><span class="p">[</span><span class="s1">&#39;replace&#39;</span><span class="p">],</span>
@@ -314,7 +319,7 @@
 
             <span class="n">actual_indent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span>
             <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="n">actual_indent</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-            <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hier_options</span><span class="p">[</span><span class="s1">&#39;per_line_sub&#39;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span><span class="n">HIER_OPTIONS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">os</span><span class="p">][</span><span class="s1">&#39;per_line_sub&#39;</span><span class="p">]:</span>
                 <span class="n">line</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
                     <span class="n">sub</span><span class="p">[</span><span class="s1">&#39;search&#39;</span><span class="p">],</span>
                     <span class="n">sub</span><span class="p">[</span><span class="s1">&#39;replace&#39;</span><span class="p">],</span>
@@ -341,7 +346,8 @@
             <span class="n">most_recent_item</span> <span class="o">=</span> <span class="n">current_section</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
             <span class="n">most_recent_item</span><span class="o">.</span><span class="n">real_indent_level</span> <span class="o">=</span> <span class="n">this_indent</span>
 
-            <span class="k">for</span> <span class="n">expression</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hier_options</span><span class="p">[</span><span class="s1">&#39;indent_adjust&#39;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">expression</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span><span class="n">HIER_OPTIONS</span><span class="p">[</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">os</span><span class="p">][</span><span class="s1">&#39;indent_adjust&#39;</span><span class="p">]:</span>
                 <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">expression</span><span class="p">[</span><span class="s1">&#39;start_expression&#39;</span><span class="p">],</span> <span class="n">line</span><span class="p">):</span>
                     <span class="n">indent_adjust</span> <span class="o">+=</span> <span class="mi">1</span>
                     <span class="n">end_indent_adjust</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">[</span><span class="s1">&#39;end_expression&#39;</span><span class="p">])</span>

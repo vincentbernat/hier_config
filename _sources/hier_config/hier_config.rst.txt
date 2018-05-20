@@ -6,6 +6,7 @@ Subpackages
 
 .. toctree::
 
+    hier_config.constants
     hier_config.helpers
 
 Submodules
