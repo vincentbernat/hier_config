@@ -547,20 +547,20 @@ hierarchical tree data structure.</p>
 <p>Example usage:</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
 
-<span class="kn">import</span> <span class="nn">yaml</span>
 <span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">HierarchicalConfigurationRoot</span>
 
 <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;aggr101a.dfw1&#39;</span>
+<span class="n">os</span> <span class="o">=</span> <span class="s1">&#39;ios&#39;</span>
 <span class="n">hier_options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/hier_options.yml&#39;</span><span class="p">))</span>
 
 <span class="c1"># Build HierarchicalConfigurationRoot object for the Running Config</span>
 
-<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">hier_options</span><span class="p">)</span>
+<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">hier_options</span><span class="p">)</span>
 <span class="n">running_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/running_config.conf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Build HierarchicalConfiguration object for the Compiled Config</span>
 
-<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">hier_options</span><span class="p">)</span>
+<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HierarchicalConfigurationRoot</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">hier_options</span><span class="p">)</span>
 <span class="n">compiled_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/compiled_config.conf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Build HierarchicalConfiguration object for the Remediation Config</span>
