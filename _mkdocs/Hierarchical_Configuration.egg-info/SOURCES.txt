@@ -1,0 +1,4 @@
+Hierarchical_Configuration.egg-info/PKG-INFO
+Hierarchical_Configuration.egg-info/SOURCES.txt
+Hierarchical_Configuration.egg-info/dependency_links.txt
+Hierarchical_Configuration.egg-info/top_level.txt
