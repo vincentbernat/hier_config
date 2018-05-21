@@ -1,13 +1,6 @@
 hier\_config package
 ====================
 
-Subpackages
------------
-
-.. toctree::
-
-    hier_config.helpers
-
 Submodules
 ----------
 
@@ -15,6 +8,14 @@ hier\_config.hc\_child module
 -----------------------------
 
 .. automodule:: hier_config.hc_child
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+hier\_config.helpers module
+---------------------------
+
+.. automodule:: hier_config.helpers
     :members:
     :undoc-members:
     :show-inheritance:
