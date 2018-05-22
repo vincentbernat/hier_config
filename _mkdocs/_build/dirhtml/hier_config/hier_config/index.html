@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hier_config package &mdash; Hieararchical Configuration 1.1.0 documentation</title>
+  <title>hier_config package &mdash; Hieararchical Configuration 1.1.1 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                1.1.0
+                1.1.1
               </div>
             
           
@@ -264,6 +264,8 @@ target is the destination(i.e. compiled_config)</p>
 <dt id="hier_config.hc_child.HConfigChild.del_child">
 <code class="descname">del_child</code><span class="sig-paren">(</span><em>child</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.del_child" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a child from self.children and self.children_dict</p>
+<p>:param HConfigChild
+:return: None</p>
 </dd></dl>
 
 <dl class="method">
@@ -352,7 +354,26 @@ determine if the line should be included</p>
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.move">
 <code class="descname">move</code><span class="sig-paren">(</span><em>new_parent</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.move" title="Permalink to this definition">¶</a></dt>
-<dd><p>move an instance to a new parent instance</p>
+<dd><p>move one HConfigChild object to different HConfig parent object</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hier1</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">hostname1</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="n">interface1</span> <span class="o">=</span> <span class="n">hier1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="s1">&#39;interface Vlan2&#39;</span><span class="p">)</span>
+<span class="n">interface1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="s1">&#39;ip address 10.0.0.1 255.255.255.252&#39;</span><span class="p">)</span>
+
+<span class="n">hier2</span> <span class="o">=</span> <span class="n">Hconfig</span><span class="p">(</span><span class="n">hostname2</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+<span class="n">interface1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">hier2</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>HConfigChild</strong> – list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -519,10 +540,12 @@ hierarchical tree data structure.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
 
 <span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">HConfig</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="n">hostname</span> <span class="o">=</span> <span class="s1">&#39;aggr101a.dfw1&#39;</span>
+<span class="n">hostname</span> <span class="o">=</span> <span class="s1">&#39;example.rtr&#39;</span>
 <span class="n">os</span> <span class="o">=</span> <span class="s1">&#39;ios&#39;</span>
-<span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/options.yml&#39;</span><span class="p">))</span>
+<span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_tags_ios.yml&#39;</span><span class="p">))</span>
 
 <span class="c1"># Build HConfig object for the Running Config</span>
 
@@ -536,11 +559,12 @@ hierarchical tree data structure.</p>
 
 <span class="c1"># Build Hierarchical Configuration object for the Remediation Config</span>
 
-<span class="n">remediation_config_hier</span> <span class="o">=</span> <span class="n">compiled_config_hier</span><span class="o">.</span><span class="n">deep_diff_tree_with</span><span class="p">(</span><span class="n">running_config_hier</span><span class="p">)</span>
+<span class="n">remediation_config_hier</span> <span class="o">=</span> <span class="n">running_config_hier</span><span class="o">.</span><span class="n">config_to_get_to</span><span class="p">(</span><span class="n">compiled_config_hier</span><span class="p">)</span>
 <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">add_sectional_exiting</span><span class="p">()</span>
-<span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">add_tags</span><span class="p">(</span><span class="n">hier_tags</span><span class="p">)</span>
-<span class="n">remediation_config</span> <span class="o">=</span> <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">to_detailed_output</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+<span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">add_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">all_children</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>See:</p>
@@ -581,20 +605,21 @@ for inclusion and exclusion.</p>
 <dl class="method">
 <dt id="hier_config.HConfig.dump">
 <code class="descname">dump</code><span class="sig-paren">(</span><em>lineage_rules=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.HConfig.dump" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>dump = [{</dt>
-<dd>‘depth’: child.depth(),
-‘text’: child.text,
-‘tags’: list(child.tags),
-‘comments’: list(child.comments),
-‘new_in_config’: child.new_in_config</dd>
-</dl>
-<p>}, …]</p>
+<dd><p>Dump a list of loaded HConfig data</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+    <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
+    <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
+    <span class="s1">&#39;new_in_config&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">new_in_config</span>
+<span class="p">},]</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lineage_rules</strong> – list of lineage rules</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lineage_rules</strong> – list</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list</td>
 </tr>
@@ -611,15 +636,15 @@ for inclusion and exclusion.</p>
 <dt id="hier_config.HConfig.load_from_dump">
 <code class="descname">load_from_dump</code><span class="sig-paren">(</span><em>dump</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.HConfig.load_from_dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a HConfig dump</p>
-<dl class="docutils">
-<dt>dump = [{</dt>
-<dd>‘depth’: child.depth(),
-‘text’: child.text,
-‘tags’: list(child.tags),
-‘comments’: list(child.comments),
-‘new_in_config’: child.new_in_config</dd>
-</dl>
-<p>}, …]</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+    <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
+    <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
+    <span class="s1">&#39;new_in_config&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">new_in_config</span>
+<span class="p">},]</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -706,7 +731,7 @@ for inclusion and exclusion.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.0',
+            VERSION:'1.1.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'',
