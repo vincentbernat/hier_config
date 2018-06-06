@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hier_config package &mdash; Hieararchical Configuration 1.2.2 documentation</title>
+  <title>hier_config package &mdash; Hieararchical Configuration 1.2.3 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                1.2.2
+                1.2.3
               </div>
             
           
@@ -187,12 +187,37 @@
 <dt id="hier_config.hc_child.HConfigChild.add_children">
 <code class="descname">add_children</code><span class="sig-paren">(</span><em>lines</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.add_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add child instances of HConfigChild</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lines</strong> – HConfigChild object -&gt; type list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.add_deep_copy_of">
 <code class="descname">add_deep_copy_of</code><span class="sig-paren">(</span><em>child_to_add</em>, <em>merged=False</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.add_deep_copy_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a nested copy of a child to self</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>child_to_add</strong> – type HConfigCHild</li>
+<li><strong>merged</strong> – type boolean, default False</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">new_child</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -279,8 +304,16 @@ target is the destination(i.e. compiled_config)</p>
 <dt id="hier_config.hc_child.HConfigChild.del_child">
 <code class="descname">del_child</code><span class="sig-paren">(</span><em>child</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.del_child" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a child from self.children and self.children_dict</p>
-<p>:param HConfigChild
-:return: None</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>child</strong> – HConfigChild object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -340,6 +373,16 @@ target is the destination(i.e. compiled_config)</p>
 <dt id="hier_config.hc_child.HConfigChild.is_idempotent_command">
 <code class="descname">is_idempotent_command</code><span class="sig-paren">(</span><em>other_children</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.is_idempotent_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if self.text is an idempotent change.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_children</strong> – HConfigChild object -&gt; type list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -383,7 +426,7 @@ determine if the line should be included</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>HConfigChild</strong> – list</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_parent</strong> – HConfigChild object -&gt; type list</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -592,6 +635,16 @@ hierarchical tree data structure.</p>
 <code class="descname">add_ancestor_copy_of</code><span class="sig-paren">(</span><em>parent_to_add</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.HConfig.add_ancestor_copy_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a copy of the ancestry of parent_to_add to self
 and return the deepest child which is equivalent to parent_to_add</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent_to_add</strong> – type HConfig</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">base</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -746,7 +799,7 @@ for inclusion and exclusion.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.2.2',
+            VERSION:'1.2.3',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'',
