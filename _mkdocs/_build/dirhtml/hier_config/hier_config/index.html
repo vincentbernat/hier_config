@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hier_config package &mdash; Hieararchical Configuration 1.2.3 documentation</title>
+  <title>hier_config package &mdash; Hieararchical Configuration 1.3.0 documentation</title>
   
 
   
@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -58,7 +57,7 @@
             
             
               <div class="version">
-                1.2.3
+                1.3.0
               </div>
             
           
@@ -90,6 +89,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.hc_child">hier_config.hc_child module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.helpers">hier_config.helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-hier_config.host">hier_config.host module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.text_match">hier_config.text_match module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config">Module contents</a></li>
 </ul>
@@ -364,9 +364,9 @@ target is the destination(i.e. compiled_config)</p>
 <code class="descname">has_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.has_children" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.host">
-<code class="descname">host</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.host" title="Permalink to this definition">¶</a></dt>
+<code class="descname">host</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.host" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -413,11 +413,11 @@ determine if the line should be included</p>
 <dt id="hier_config.hc_child.HConfigChild.move">
 <code class="descname">move</code><span class="sig-paren">(</span><em>new_parent</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>move one HConfigChild object to different HConfig parent object</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hier1</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">hostname1</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hier1</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
 <span class="n">interface1</span> <span class="o">=</span> <span class="n">hier1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="s1">&#39;interface Vlan2&#39;</span><span class="p">)</span>
 <span class="n">interface1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="s1">&#39;ip address 10.0.0.1 255.255.255.252&#39;</span><span class="p">)</span>
 
-<span class="n">hier2</span> <span class="o">=</span> <span class="n">Hconfig</span><span class="p">(</span><span class="n">hostname2</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="n">hier2</span> <span class="o">=</span> <span class="n">Hconfig</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
 
 <span class="n">interface1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">hier2</span><span class="p">)</span>
 </pre></div>
@@ -439,6 +439,11 @@ determine if the line should be included</p>
 <code class="descname">negate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.hc_child.HConfigChild.negate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Negate self.text</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="hier_config.hc_child.HConfigChild.options">
+<code class="descname">options</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.overwrite_with">
@@ -521,6 +526,35 @@ with one of the tags in tags</p>
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-hier_config.host">
+<span id="hier-config-host-module"></span><h2>hier_config.host module<a class="headerlink" href="#module-hier_config.host" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hier_config.host.Host">
+<em class="property">class </em><code class="descclassname">hier_config.host.</code><code class="descname">Host</code><span class="sig-paren">(</span><em>hostname</em>, <em>os</em>, <em>hconfig_options</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A host object is a convenient way to loading host inventory
+items into a single object.</p>
+<p>The default is to load “hostname”, “os”, and “options” to the host object,
+however, it can easily be extended for developer needs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hostname</strong> – type str</li>
+<li><strong>os</strong> – type str</li>
+<li><strong>options</strong> – type dict</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Host Object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="module-hier_config.text_match">
 <span id="hier-config-text-match-module"></span><h2>hier_config.text_match module<a class="headerlink" href="#module-hier_config.text_match" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -590,7 +624,7 @@ very slow and should be avoided where possible.</p>
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hier_config" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hier_config.HConfig">
-<em class="property">class </em><code class="descclassname">hier_config.</code><code class="descname">HConfig</code><span class="sig-paren">(</span><em>hostname</em>, <em>os</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.HConfig" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">hier_config.</code><code class="descname">HConfig</code><span class="sig-paren">(</span><em>hostname=None</em>, <em>os=None</em>, <em>options=None</em>, <em>host=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.HConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hier_config.hc_child.HConfigChild" title="hier_config.hc_child.HConfigChild"><code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.hc_child.HConfigChild</span></code></a></p>
 <p>A class for representing and comparing Cisco configurations in a
 hierarchical tree data structure.</p>
@@ -598,21 +632,21 @@ hierarchical tree data structure.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
 
 <span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">HConfig</span>
+<span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">Host</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="n">hostname</span> <span class="o">=</span> <span class="s1">&#39;example.rtr&#39;</span>
-<span class="n">os</span> <span class="o">=</span> <span class="s1">&#39;ios&#39;</span>
 <span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
 <span class="n">tags</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_tags_ios.yml&#39;</span><span class="p">))</span>
+<span class="n">host</span> <span class="o">=</span> <span class="n">Host</span><span class="p">(</span><span class="s1">&#39;example.rtr&#39;</span><span class="p">,</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 
 <span class="c1"># Build HConfig object for the Running Config</span>
 
-<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
 <span class="n">running_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/running_config.conf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Build Hierarchical Configuration object for the Compiled Config</span>
 
-<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
 <span class="n">compiled_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/compiled_config.conf&#39;</span><span class="p">)</span>
 
 <span class="c1"># Build Hierarchical Configuration object for the Remediation Config</span>
@@ -696,8 +730,8 @@ for inclusion and exclusion.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="hier_config.HConfig.hostname">
-<code class="descname">hostname</code><a class="headerlink" href="#hier_config.HConfig.hostname" title="Permalink to this definition">¶</a></dt>
+<dt id="hier_config.HConfig.host">
+<code class="descname">host</code><a class="headerlink" href="#hier_config.HConfig.host" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -747,6 +781,11 @@ for inclusion and exclusion.</p>
 <code class="descname">merge</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.HConfig.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two HConfig objects</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="hier_config.HConfig.options">
+<code class="descname">options</code><a class="headerlink" href="#hier_config.HConfig.options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="hier_config.HConfig.root">
@@ -799,7 +838,7 @@ for inclusion and exclusion.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.2.3',
+            VERSION:'1.3.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'',
@@ -813,10 +852,7 @@ for inclusion and exclusion.</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

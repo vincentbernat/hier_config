@@ -20,6 +20,14 @@ hier\_config.helpers module
     :undoc-members:
     :show-inheritance:
 
+hier\_config.host module
+------------------------
+
+.. automodule:: hier_config.host
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 hier\_config.text\_match module
 -------------------------------
 
