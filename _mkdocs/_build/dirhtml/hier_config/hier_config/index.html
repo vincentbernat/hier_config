@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hier_config package &mdash; Hieararchical Configuration 1.3.1 documentation</title>
+  <title>hier_config package &mdash; Hieararchical Configuration 1.4.0 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                1.3.1
+                1.4.0
               </div>
             
           
@@ -543,7 +543,7 @@ however, it can easily be extended for developer needs.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>hostname</strong> – type str</li>
 <li><strong>os</strong> – type str</li>
-<li><strong>options</strong> – type dict</li>
+<li><strong>hconfig_options</strong> – type dict</li>
 </ul>
 </td>
 </tr>
@@ -552,6 +552,126 @@ however, it can easily be extended for developer needs.</p>
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="hier_config.host.Host.compiled_config">
+<code class="descname">compiled_config</code><a class="headerlink" href="#hier_config.host.Host.compiled_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>compiled configuration property
+:return: self._compiled_config -&gt; type HConfig Object or None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.host.Host.filter_remediation">
+<code class="descname">filter_remediation</code><span class="sig-paren">(</span><em>include_tags=None</em>, <em>exclude_tags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.filter_remediation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run filter jobs, based on tags on self.remediation_config</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>include_tags</strong> – type list</li>
+<li><strong>exclude_tags</strong> – type list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">self.facts[‘remediation_conig_raw’] -&gt; type str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hier_config.host.Host.hconfig_tags">
+<code class="descname">hconfig_tags</code><a class="headerlink" href="#hier_config.host.Host.hconfig_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>hier-config tags property
+:return: self._hconfig_tags -&gt; type list of dicts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.host.Host.load_config_from">
+<code class="descname">load_config_from</code><span class="sig-paren">(</span><em>config_type</em>, <em>name</em>, <em>file=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.load_config_from" title="Permalink to this definition">¶</a></dt>
+<dd><ol class="arabic simple">
+<li>Loads a running config or a compiled config into a Host object</li>
+<li>Sets host.facts[‘running_config_raw’] or host.facts[‘compiled_config_raw’]</li>
+<li>Loads the config into HConfig</li>
+<li>Sets the loaded hier-config in host.facts[‘running_config’] or host.facts[‘compiled_config’]</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>config_type</strong> – ‘running’ or ‘compiled’ -&gt; type str</li>
+<li><strong>name</strong> – file name or config text string to load -&gt; type str</li>
+<li><strong>file</strong> – default, True -&gt; type boolean</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">self.running_config or self.compiled_config</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.host.Host.load_remediation">
+<code class="descname">load_remediation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.load_remediation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Once self.running_config and self.compled_config have been created,
+create self.remediation_config</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self.remediation_config -&gt; type HConfig Object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.host.Host.load_tags">
+<code class="descname">load_tags</code><span class="sig-paren">(</span><em>name</em>, <em>file=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.load_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads lineage rules into host.facts[“hconfig_tags”]</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>Specify to load lineage rules from a file.</dd>
+</dl>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>Specify to load lineage rules from a dictionary.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> – tags from a file or dictionary</li>
+<li><strong>file</strong> – default, True -&gt; type boolean</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">self.hconfig_tags</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hier_config.host.Host.remediation_config">
+<code class="descname">remediation_config</code><a class="headerlink" href="#hier_config.host.Host.remediation_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>remediation configuration property
+:return: self._remediation_config -&gt; type HConfig Object or None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hier_config.host.Host.running_config">
+<code class="descname">running_config</code><a class="headerlink" href="#hier_config.host.Host.running_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>running configuration property
+:return: self._running_config -&gt; type HConfig Object or None</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -632,11 +752,10 @@ hierarchical tree data structure.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
 
 <span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">HConfig</span>
-<span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">Host</span>
+<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="k">import</span> <span class="n">Host</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 
 <span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
-<span class="n">tags</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_tags_ios.yml&#39;</span><span class="p">))</span>
 <span class="n">host</span> <span class="o">=</span> <span class="n">Host</span><span class="p">(</span><span class="s1">&#39;example.rtr&#39;</span><span class="p">,</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 
 <span class="c1"># Build HConfig object for the Running Config</span>
@@ -652,8 +771,6 @@ hierarchical tree data structure.</p>
 <span class="c1"># Build Hierarchical Configuration object for the Remediation Config</span>
 
 <span class="n">remediation_config_hier</span> <span class="o">=</span> <span class="n">running_config_hier</span><span class="o">.</span><span class="n">config_to_get_to</span><span class="p">(</span><span class="n">compiled_config_hier</span><span class="p">)</span>
-<span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">add_sectional_exiting</span><span class="p">()</span>
-<span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">add_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">all_children</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
@@ -838,7 +955,7 @@ for inclusion and exclusion.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.3.1',
+            VERSION:'1.4.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'',
