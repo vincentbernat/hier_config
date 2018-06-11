@@ -536,6 +536,29 @@ with one of the tags in tags</p>
 items into a single object.</p>
 <p>The default is to load “hostname”, “os”, and “options” to the host object,
 however, it can easily be extended for developer needs.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="k">import</span> <span class="n">Host</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
+<span class="n">host</span> <span class="o">=</span> <span class="n">Host</span><span class="p">(</span><span class="s1">&#39;example.rtr&#39;</span><span class="p">,</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+<span class="c1"># Example of easily extending the host object</span>
+<span class="n">host</span><span class="o">.</span><span class="n">facts</span><span class="p">[</span><span class="s1">&#39;chassis_model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;WS-C4948E&#39;</span>
+
+<span class="c1"># Example of loading running config and compiled configs into a host object</span>
+<span class="n">host</span><span class="o">.</span><span class="n">load_config_from</span><span class="p">(</span><span class="n">config_type</span><span class="o">=</span><span class="s2">&quot;running&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;./tests/files/running_config.conf&quot;</span><span class="p">)</span>
+<span class="n">host</span><span class="o">.</span><span class="n">load_config_from</span><span class="p">(</span><span class="n">config_type</span><span class="o">=</span><span class="s2">&quot;compiled&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;./tests/files/compiled_config.conf&quot;</span><span class="p">)</span>
+
+<span class="c1"># Example of loading hier-config tags into a host object</span>
+<span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="s2">&quot;./tests/files/test_tags_ios.yml&quot;</span><span class="p">)</span>
+
+<span class="c1"># Example of creating a remediation config without a tag targeting specific config</span>
+<span class="n">host</span><span class="o">.</span><span class="n">load_remediation</span><span class="p">()</span>
+
+<span class="c1"># Example of creating a remediation config with a tag (&#39;safe&#39;) targeting a specific config.</span>
+<span class="n">host</span><span class="o">.</span><span class="n">filter_remediation</span><span class="p">(</span><span class="n">include_tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;safe&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -555,8 +578,15 @@ however, it can easily be extended for developer needs.</p>
 <dl class="attribute">
 <dt id="hier_config.host.Host.compiled_config">
 <code class="descname">compiled_config</code><a class="headerlink" href="#hier_config.host.Host.compiled_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>compiled configuration property
-:return: self._compiled_config -&gt; type HConfig Object or None</p>
+<dd><p>compiled configuration property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._compiled_config -&gt; type HConfig Object or None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -583,8 +613,15 @@ however, it can easily be extended for developer needs.</p>
 <dl class="attribute">
 <dt id="hier_config.host.Host.hconfig_tags">
 <code class="descname">hconfig_tags</code><a class="headerlink" href="#hier_config.host.Host.hconfig_tags" title="Permalink to this definition">¶</a></dt>
-<dd><p>hier-config tags property
-:return: self._hconfig_tags -&gt; type list of dicts</p>
+<dd><p>hier-config tags property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._hconfig_tags -&gt; type list of dicts</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -623,7 +660,7 @@ create self.remediation_config</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self.remediation_config -&gt; type HConfig Object</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self.remediation_config</td>
 </tr>
 </tbody>
 </table>
@@ -637,10 +674,17 @@ create self.remediation_config</p>
 <dt>Example:</dt>
 <dd>Specify to load lineage rules from a file.</dd>
 </dl>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="s1">&#39;tags_ios.yml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="docutils">
 <dt>Example:</dt>
 <dd>Specify to load lineage rules from a dictionary.</dd>
 </dl>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;lineage&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;startswith&quot;</span><span class="p">:</span> <span class="s2">&quot;interface&quot;</span><span class="p">}],</span> <span class="s2">&quot;add_tags&quot;</span><span class="p">:</span> <span class="s2">&quot;interfaces&quot;</span><span class="p">}]</span>
+<span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -661,15 +705,29 @@ create self.remediation_config</p>
 <dl class="attribute">
 <dt id="hier_config.host.Host.remediation_config">
 <code class="descname">remediation_config</code><a class="headerlink" href="#hier_config.host.Host.remediation_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>remediation configuration property
-:return: self._remediation_config -&gt; type HConfig Object or None</p>
+<dd><p>remediation configuration property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._remediation_config -&gt; type HConfig Object or None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hier_config.host.Host.running_config">
 <code class="descname">running_config</code><a class="headerlink" href="#hier_config.host.Host.running_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>running configuration property
-:return: self._running_config -&gt; type HConfig Object or None</p>
+<dd><p>running configuration property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._running_config -&gt; type HConfig Object or None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
