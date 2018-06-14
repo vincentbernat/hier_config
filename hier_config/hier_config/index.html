@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hier_config package &mdash; Hieararchical Configuration 1.4.0 documentation</title>
+  <title>hier_config package &mdash; Hieararchical Configuration 1.4.1 documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                1.4.0
+                1.4.1
               </div>
             
           
@@ -626,7 +626,7 @@ however, it can easily be extended for developer needs.</p>
 
 <dl class="method">
 <dt id="hier_config.host.Host.load_config_from">
-<code class="descname">load_config_from</code><span class="sig-paren">(</span><em>config_type</em>, <em>name</em>, <em>file=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.load_config_from" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_config_from</code><span class="sig-paren">(</span><em>config_type</em>, <em>name</em>, <em>load_file=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.load_config_from" title="Permalink to this definition">¶</a></dt>
 <dd><ol class="arabic simple">
 <li>Loads a running config or a compiled config into a Host object</li>
 <li>Sets host.facts[‘running_config_raw’] or host.facts[‘compiled_config_raw’]</li>
@@ -640,7 +640,7 @@ however, it can easily be extended for developer needs.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>config_type</strong> – ‘running’ or ‘compiled’ -&gt; type str</li>
 <li><strong>name</strong> – file name or config text string to load -&gt; type str</li>
-<li><strong>file</strong> – default, True -&gt; type boolean</li>
+<li><strong>load_file</strong> – default, True -&gt; type bool</li>
 </ul>
 </td>
 </tr>
@@ -668,7 +668,7 @@ create self.remediation_config</p>
 
 <dl class="method">
 <dt id="hier_config.host.Host.load_tags">
-<code class="descname">load_tags</code><span class="sig-paren">(</span><em>name</em>, <em>file=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.load_tags" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_tags</code><span class="sig-paren">(</span><em>name</em>, <em>load_file=True</em><span class="sig-paren">)</span><a class="headerlink" href="#hier_config.host.Host.load_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads lineage rules into host.facts[“hconfig_tags”]</p>
 <dl class="docutils">
 <dt>Example:</dt>
@@ -691,7 +691,7 @@ create self.remediation_config</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>name</strong> – tags from a file or dictionary</li>
-<li><strong>file</strong> – default, True -&gt; type boolean</li>
+<li><strong>load_file</strong> – default, True -&gt; type bool</li>
 </ul>
 </td>
 </tr>
@@ -1013,7 +1013,7 @@ for inclusion and exclusion.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.4.0',
+            VERSION:'1.4.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'',
