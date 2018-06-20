@@ -4,6 +4,14 @@ hier\_config package
 Submodules
 ----------
 
+hier\_config.base module
+------------------------
+
+.. automodule:: hier_config.base
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 hier\_config.hc\_child module
 -----------------------------
 
