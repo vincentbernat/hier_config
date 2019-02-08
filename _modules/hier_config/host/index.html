@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hier_config.host &mdash; Hieararchical Configuration 1.6.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../" class="icon icon-home"> Hieararchical Configuration
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.6.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hier_config/">Code Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Hieararchical Configuration</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../../">Module code</a> &raquo;</li>
+        
+          <li><a href="../">hier_config</a> &raquo;</li>
+        
+      <li>hier_config.host</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for hier_config.host</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">HConfig</span>
+<span class="kn">import</span> <span class="nn">hier_config.helpers</span> <span class="k">as</span> <span class="nn">H</span>
+
+
+<div class="viewcode-block" id="Host"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.host.Host">[docs]</a><span class="k">class</span> <span class="nc">Host</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A host object is a convenient way to loading host inventory</span>
+<span class="sd">    items into a single object.</span>
+
+<span class="sd">    The default is to load &quot;hostname&quot;, &quot;os&quot;, and &quot;options&quot; to the host object,</span>
+<span class="sd">    however, it can easily be extended for developer needs.</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        import yaml</span>
+<span class="sd">        from hier_config.host import Host</span>
+
+<span class="sd">        options = yaml.load(open(&#39;./tests/files/test_options_ios.yml&#39;))</span>
+<span class="sd">        host = Host(&#39;example.rtr&#39;, &#39;ios&#39;, options)</span>
+
+<span class="sd">        # Example of easily extending the host object</span>
+<span class="sd">        host.facts[&#39;chassis_model&#39;] = &#39;WS-C4948E&#39;</span>
+
+<span class="sd">        # Example of loading running config and compiled configs into a host object</span>
+<span class="sd">        host.load_config_from(config_type=&quot;running&quot;, name=&quot;./tests/files/running_config.conf&quot;)</span>
+<span class="sd">        host.load_config_from(config_type=&quot;compiled&quot;, name=&quot;./tests/files/compiled_config.conf&quot;)</span>
+
+<span class="sd">        # Example of loading hier-config tags into a host object</span>
+<span class="sd">        host.load_tags(&quot;./tests/files/test_tags_ios.yml&quot;)</span>
+
+<span class="sd">        # Example of creating a remediation config without a tag targeting specific config</span>
+<span class="sd">        host.load_remediation()</span>
+
+<span class="sd">        # Example of creating a remediation config with a tag (&#39;safe&#39;) targeting a specific config.</span>
+<span class="sd">        host.filter_remediation(include_tags=[&#39;safe&#39;])</span>
+
+<span class="sd">    :param hostname: type str</span>
+<span class="sd">    :param os: type str</span>
+<span class="sd">    :param hconfig_options: type dict</span>
+
+<span class="sd">    :return: Host Object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">os</span><span class="p">,</span> <span class="n">hconfig_options</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hostname</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hconfig_options</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">hconfig_options</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hconfig_tags</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_running_config</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_config</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_remediation_config</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">facts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Host(hostname=</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hostname</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">running_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        running configuration property</span>
+
+<span class="sd">        :return: self._running_config -&gt; type HConfig Object or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_running_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_running_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_running_config</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_running_config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">compiled_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        compiled configuration property</span>
+
+<span class="sd">        :return: self._compiled_config -&gt; type HConfig Object or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_compiled_config</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">remediation_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        remediation configuration property</span>
+
+<span class="sd">        :return: self._remediation_config -&gt; type HConfig Object or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remediation_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_remediation_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_remediation_config</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remediation_config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hconfig_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        hier-config tags property</span>
+
+<span class="sd">        :return: self._hconfig_tags -&gt; type list of dicts</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hconfig_tags</span>
+
+<div class="viewcode-block" id="Host.load_config_from"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.host.Host.load_config_from">[docs]</a>    <span class="k">def</span> <span class="nf">load_config_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_type</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">load_file</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        1. Loads a running config or a compiled config into a Host object</span>
+<span class="sd">        2. Sets host.facts[&#39;running_config_raw&#39;] or host.facts[&#39;compiled_config_raw&#39;]</span>
+<span class="sd">        3. Loads the config into HConfig</span>
+<span class="sd">        4. Sets the loaded hier-config in host.facts[&#39;running_config&#39;] or host.facts[&#39;compiled_config&#39;]</span>
+
+<span class="sd">        :param config_type: &#39;running&#39; or &#39;compiled&#39; -&gt; type str</span>
+<span class="sd">        :param name: file name or config text string to load -&gt; type str</span>
+<span class="sd">        :param load_file: default, True -&gt; type bool</span>
+<span class="sd">        :return: self.running_config or self.compiled_config</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">load_file</span><span class="p">:</span>
+            <span class="n">config_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_from_file</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">config_text</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="n">hier</span><span class="o">.</span><span class="n">load_from_string</span><span class="p">(</span><span class="n">config_text</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">config_type</span> <span class="o">==</span> <span class="s2">&quot;running&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="p">[</span><span class="s2">&quot;running_config_raw&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config_text</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_running_config</span> <span class="o">=</span> <span class="n">hier</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_config</span>
+        <span class="k">elif</span> <span class="n">config_type</span> <span class="o">==</span> <span class="s2">&quot;compiled&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="p">[</span><span class="s2">&quot;compiled_config_raw&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config_text</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_config</span> <span class="o">=</span> <span class="n">hier</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_config</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">SyntaxError</span><span class="p">(</span><span class="s2">&quot;Unknown config_type. Expected &#39;running&#39; or &#39;compiled&#39;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Host.load_remediation"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.host.Host.load_remediation">[docs]</a>    <span class="k">def</span> <span class="nf">load_remediation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Once self.running_config and self.compled_config have been created,</span>
+<span class="sd">        create self.remediation_config</span>
+
+<span class="sd">        :return: self.remediation_config</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_config</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiled_config</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_remediation_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_config</span><span class="o">.</span><span class="n">config_to_get_to</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">compiled_config</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Missing host.running_config or host.compiled_config&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">remediation_config</span><span class="o">.</span><span class="n">add_sectional_exiting</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remediation_config</span><span class="o">.</span><span class="n">set_order_weight</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remediation_config</span><span class="o">.</span><span class="n">add_tags</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hconfig_tags</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_remediation</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">remediation_config</span></div>
+
+<div class="viewcode-block" id="Host.filter_remediation"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.host.Host.filter_remediation">[docs]</a>    <span class="k">def</span> <span class="nf">filter_remediation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_tags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_tags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run filter jobs, based on tags on self.remediation_config</span>
+
+<span class="sd">        :param include_tags: type list</span>
+<span class="sd">        :param exclude_tags: type list</span>
+<span class="sd">        :return: self.facts[&#39;remediation_conig_raw&#39;] -&gt; type str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">remediation_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">include_tags</span> <span class="ow">or</span> <span class="n">exclude_tags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">include_tags</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">to_list</span><span class="p">(</span><span class="n">include_tags</span><span class="p">)</span>
+            <span class="n">exclude_tags</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">to_list</span><span class="p">(</span><span class="n">exclude_tags</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">remediation_config</span><span class="o">.</span><span class="n">all_children_sorted_by_tags</span><span class="p">(</span><span class="n">include_tags</span><span class="p">,</span> <span class="n">exclude_tags</span><span class="p">):</span>
+                <span class="n">remediation_text</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">()</span>
+                <span class="n">remediation_text</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">remediation_config</span><span class="o">.</span><span class="n">all_children</span><span class="p">():</span>
+                <span class="n">remediation_text</span> <span class="o">+=</span> <span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">()</span>
+                <span class="n">remediation_text</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="p">[</span><span class="s2">&quot;remediation_config_raw&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">remediation_text</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">facts</span><span class="p">[</span><span class="s2">&quot;remediation_config_raw&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Host.load_tags"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.host.Host.load_tags">[docs]</a>    <span class="k">def</span> <span class="nf">load_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">load_file</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads lineage rules into host.facts[&quot;hconfig_tags&quot;]</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            Specify to load lineage rules from a file.</span>
+
+<span class="sd">        .. code:: python</span>
+
+<span class="sd">            host.load_tags(&#39;tags_ios.yml&#39;)</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            Specify to load lineage rules from a dictionary.</span>
+
+<span class="sd">        .. code:: python</span>
+
+<span class="sd">            tags = [{&quot;lineage&quot;: [{&quot;startswith&quot;: &quot;interface&quot;}], &quot;add_tags&quot;: &quot;interfaces&quot;}]</span>
+<span class="sd">            host.load_tags(tags, file=False)</span>
+
+<span class="sd">        :param name: tags from a file or dictionary</span>
+<span class="sd">        :param load_file: default, True -&gt; type bool</span>
+<span class="sd">        :return: self.hconfig_tags</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">load_file</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hconfig_tags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_from_file</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">parse_yaml</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hconfig_tags</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hconfig_tags</span></div>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_load_from_file</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">parse_yaml</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Opens a config file and loads it as a string.</span>
+
+<span class="sd">        :param name: type str</span>
+<span class="sd">        :param parse_yaml: type boolean</span>
+<span class="sd">        :return: content -&gt; type str or type dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">parse_yaml</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">yaml</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">content</span>
+
+    <span class="k">def</span> <span class="nf">_get_running_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+
+    <span class="k">def</span> <span class="nf">_get_compiled_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+
+    <span class="k">def</span> <span class="nf">_get_remediation_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Andrew Edwards, Jan Brooks, James Williams
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
