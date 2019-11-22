@@ -20,6 +20,14 @@ hier\_config.hc\_child module
    :undoc-members:
    :show-inheritance:
 
+hier\_config.hconfig module
+---------------------------
+
+.. automodule:: hier_config.hconfig
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 hier\_config.helpers module
 ---------------------------
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hier_config package &mdash; Hieararchical Configuration 1.6.0 documentation</title>
+  <title>hier_config package &mdash; Hieararchical Configuration 1.6.1 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                1.6.0
+                1.6.1
               </div>
             
           
@@ -91,6 +91,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.base">hier_config.base module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.hc_child">hier_config.hc_child module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-hier_config.hconfig">hier_config.hconfig module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.helpers">hier_config.helpers module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.host">hier_config.host module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.text_match">hier_config.text_match module</a></li>
@@ -517,6 +518,201 @@ overwriting the section without first negating it</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-hier_config.hconfig">
+<span id="hier-config-hconfig-module"></span><h2>hier_config.hconfig module<a class="headerlink" href="#module-hier_config.hconfig" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hier_config.hconfig.HConfig">
+<em class="property">class </em><code class="sig-prename descclassname">hier_config.hconfig.</code><code class="sig-name descname">HConfig</code><span class="sig-paren">(</span><em class="sig-param">hostname=None</em>, <em class="sig-param">os=None</em>, <em class="sig-param">options=None</em>, <em class="sig-param">host=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hier_config.base.HConfigBase" title="hier_config.base.HConfigBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.base.HConfigBase</span></code></a></p>
+<p>A class for representing and comparing Cisco configurations in a
+hierarchical tree data structure.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
+
+<span class="kn">from</span> <span class="nn">hier_config</span> <span class="kn">import</span> <span class="n">HConfig</span>
+<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="kn">import</span> <span class="n">Host</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
+<span class="n">host</span> <span class="o">=</span> <span class="n">Host</span><span class="p">(</span><span class="s1">&#39;example.rtr&#39;</span><span class="p">,</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+<span class="c1"># Build HConfig object for the Running Config</span>
+
+<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
+<span class="n">running_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/running_config.conf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Build Hierarchical Configuration object for the Compiled Config</span>
+
+<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
+<span class="n">compiled_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/compiled_config.conf&#39;</span><span class="p">)</span>
+
+<span class="c1"># Build Hierarchical Configuration object for the Remediation Config</span>
+
+<span class="n">remediation_config_hier</span> <span class="o">=</span> <span class="n">running_config_hier</span><span class="o">.</span><span class="n">config_to_get_to</span><span class="p">(</span><span class="n">compiled_config_hier</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">all_children</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>See:</p>
+<blockquote>
+<div><p>./tests/files/test_tags_ios.yml and ./tests/files/test_options_ios.yml</p>
+<p>for test examples of options and tags.</p>
+</div></blockquote>
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.add_ancestor_copy_of">
+<code class="sig-name descname">add_ancestor_copy_of</code><span class="sig-paren">(</span><em class="sig-param">parent_to_add</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.add_ancestor_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.add_ancestor_copy_of" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a copy of the ancestry of parent_to_add to self
+and return the deepest child which is equivalent to parent_to_add</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parent_to_add</strong> – type HConfig</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>base</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.add_sectional_exiting">
+<code class="sig-name descname">add_sectional_exiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.add_sectional_exiting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.add_sectional_exiting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the sectional exiting text as a child</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.add_tags">
+<code class="sig-name descname">add_tags</code><span class="sig-paren">(</span><em class="sig-param">tag_rules</em>, <em class="sig-param">strip_negation=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.add_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.add_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handler for tagging sections of Hierarchical Configuration data structure
+for inclusion and exclusion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.all_children_sorted_with_lineage_rules">
+<code class="sig-name descname">all_children_sorted_with_lineage_rules</code><span class="sig-paren">(</span><em class="sig-param">rules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.all_children_sorted_with_lineage_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.all_children_sorted_with_lineage_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Args:</p>
+<blockquote>
+<div><p>rules: list of lineage rules</p>
+</div></blockquote>
+<p>Yields:</p>
+<blockquote>
+<div><p>instances of Hierarchical Configuration that match one of the lineage rules</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.depth">
+<em class="property">static </em><code class="sig-name descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.depth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.dump">
+<code class="sig-name descname">dump</code><span class="sig-paren">(</span><em class="sig-param">lineage_rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump a list of loaded HConfig data</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+    <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
+    <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
+    <span class="s1">&#39;new_in_config&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">new_in_config</span>
+<span class="p">},]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lineage_rules</strong> – list</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.host">
+<em class="property">property </em><code class="sig-name descname">host</code><a class="headerlink" href="#hier_config.hconfig.HConfig.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.is_branch">
+<em class="property">property </em><code class="sig-name descname">is_branch</code><a class="headerlink" href="#hier_config.hconfig.HConfig.is_branch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.is_leaf">
+<em class="property">property </em><code class="sig-name descname">is_leaf</code><a class="headerlink" href="#hier_config.hconfig.HConfig.is_leaf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.load_from_dump">
+<code class="sig-name descname">load_from_dump</code><span class="sig-paren">(</span><em class="sig-param">dump</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.load_from_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.load_from_dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a HConfig dump</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+    <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
+    <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
+    <span class="s1">&#39;new_in_config&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">new_in_config</span>
+<span class="p">},]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dump</strong> – list</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.load_from_file">
+<code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.load_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load configuration text from a file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.load_from_string">
+<code class="sig-name descname">load_from_string</code><span class="sig-paren">(</span><em class="sig-param">config_text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.load_from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.load_from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Hierarchical Configuration nested objects from text</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.logs">
+<em class="property">property </em><code class="sig-name descname">logs</code><a class="headerlink" href="#hier_config.hconfig.HConfig.logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.merge">
+<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges two HConfig objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.options">
+<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#hier_config.hconfig.HConfig.options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.root">
+<em class="property">property </em><code class="sig-name descname">root</code><a class="headerlink" href="#hier_config.hconfig.HConfig.root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.set_order_weight">
+<code class="sig-name descname">set_order_weight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hconfig/#HConfig.set_order_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hconfig.HConfig.set_order_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets self.order integer on all children</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hier_config.hconfig.HConfig.tags">
+<em class="property">property </em><code class="sig-name descname">tags</code><a class="headerlink" href="#hier_config.hconfig.HConfig.tags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-hier_config.helpers">
 <span id="hier-config-helpers-module"></span><h2>hier_config.helpers module<a class="headerlink" href="#module-hier_config.helpers" title="Permalink to this headline">¶</a></h2>
 <p>Place any reusable functions for parsing HConfig object here</p>
@@ -769,198 +965,6 @@ very slow and should be avoided where possible.</p>
 </div>
 <div class="section" id="module-hier_config">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hier_config" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="hier_config.HConfig">
-<em class="property">class </em><code class="sig-prename descclassname">hier_config.</code><code class="sig-name descname">HConfig</code><span class="sig-paren">(</span><em class="sig-param">hostname=None</em>, <em class="sig-param">os=None</em>, <em class="sig-param">options=None</em>, <em class="sig-param">host=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#hier_config.base.HConfigBase" title="hier_config.base.HConfigBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.base.HConfigBase</span></code></a></p>
-<p>A class for representing and comparing Cisco configurations in a
-hierarchical tree data structure.</p>
-<p>Example usage:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
-
-<span class="kn">from</span> <span class="nn">hier_config</span> <span class="kn">import</span> <span class="n">HConfig</span>
-<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="kn">import</span> <span class="n">Host</span>
-<span class="kn">import</span> <span class="nn">yaml</span>
-
-<span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
-<span class="n">host</span> <span class="o">=</span> <span class="n">Host</span><span class="p">(</span><span class="s1">&#39;example.rtr&#39;</span><span class="p">,</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-
-<span class="c1"># Build HConfig object for the Running Config</span>
-
-<span class="n">running_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
-<span class="n">running_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/running_config.conf&#39;</span><span class="p">)</span>
-
-<span class="c1"># Build Hierarchical Configuration object for the Compiled Config</span>
-
-<span class="n">compiled_config_hier</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
-<span class="n">compiled_config_hier</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;./tests/files/compiled_config.conf&#39;</span><span class="p">)</span>
-
-<span class="c1"># Build Hierarchical Configuration object for the Remediation Config</span>
-
-<span class="n">remediation_config_hier</span> <span class="o">=</span> <span class="n">running_config_hier</span><span class="o">.</span><span class="n">config_to_get_to</span><span class="p">(</span><span class="n">compiled_config_hier</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">all_children</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
-</pre></div>
-</div>
-<p>See:</p>
-<blockquote>
-<div><p>./tests/files/test_tags_ios.yml and ./tests/files/test_options_ios.yml</p>
-<p>for test examples of options and tags.</p>
-</div></blockquote>
-<dl class="method">
-<dt id="hier_config.HConfig.add_ancestor_copy_of">
-<code class="sig-name descname">add_ancestor_copy_of</code><span class="sig-paren">(</span><em class="sig-param">parent_to_add</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_ancestor_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_ancestor_copy_of" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a copy of the ancestry of parent_to_add to self
-and return the deepest child which is equivalent to parent_to_add</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>parent_to_add</strong> – type HConfig</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>base</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.add_sectional_exiting">
-<code class="sig-name descname">add_sectional_exiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_sectional_exiting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_sectional_exiting" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds the sectional exiting text as a child</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.add_tags">
-<code class="sig-name descname">add_tags</code><span class="sig-paren">(</span><em class="sig-param">tag_rules</em>, <em class="sig-param">strip_negation=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_tags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handler for tagging sections of Hierarchical Configuration data structure
-for inclusion and exclusion.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.all_children_sorted_with_lineage_rules">
-<code class="sig-name descname">all_children_sorted_with_lineage_rules</code><span class="sig-paren">(</span><em class="sig-param">rules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.all_children_sorted_with_lineage_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.all_children_sorted_with_lineage_rules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Args:</p>
-<blockquote>
-<div><p>rules: list of lineage rules</p>
-</div></blockquote>
-<p>Yields:</p>
-<blockquote>
-<div><p>instances of Hierarchical Configuration that match one of the lineage rules</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.depth">
-<em class="property">static </em><code class="sig-name descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.depth" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.dump">
-<code class="sig-name descname">dump</code><span class="sig-paren">(</span><em class="sig-param">lineage_rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.dump" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dump a list of loaded HConfig data</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
-    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
-    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
-    <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
-    <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
-    <span class="s1">&#39;new_in_config&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">new_in_config</span>
-<span class="p">},]</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>lineage_rules</strong> – list</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.host">
-<em class="property">property </em><code class="sig-name descname">host</code><a class="headerlink" href="#hier_config.HConfig.host" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.is_branch">
-<em class="property">property </em><code class="sig-name descname">is_branch</code><a class="headerlink" href="#hier_config.HConfig.is_branch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.is_leaf">
-<em class="property">property </em><code class="sig-name descname">is_leaf</code><a class="headerlink" href="#hier_config.HConfig.is_leaf" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.load_from_dump">
-<code class="sig-name descname">load_from_dump</code><span class="sig-paren">(</span><em class="sig-param">dump</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_dump" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a HConfig dump</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
-    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
-    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
-    <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
-    <span class="s1">&#39;comments&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">comments</span><span class="p">),</span>
-    <span class="s1">&#39;new_in_config&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">new_in_config</span>
-<span class="p">},]</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dump</strong> – list</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.load_from_file">
-<code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load configuration text from a file</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.load_from_string">
-<code class="sig-name descname">load_from_string</code><span class="sig-paren">(</span><em class="sig-param">config_text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create Hierarchical Configuration nested objects from text</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.logs">
-<em class="property">property </em><code class="sig-name descname">logs</code><a class="headerlink" href="#hier_config.HConfig.logs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.merge">
-<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.merge" title="Permalink to this definition">¶</a></dt>
-<dd><p>Merges two HConfig objects</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.options">
-<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#hier_config.HConfig.options" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.root">
-<em class="property">property </em><code class="sig-name descname">root</code><a class="headerlink" href="#hier_config.HConfig.root" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.set_order_weight">
-<code class="sig-name descname">set_order_weight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.set_order_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.set_order_weight" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets self.order integer on all children</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hier_config.HConfig.tags">
-<em class="property">property </em><code class="sig-name descname">tags</code><a class="headerlink" href="#hier_config.HConfig.tags" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 </div>
 </div>
 

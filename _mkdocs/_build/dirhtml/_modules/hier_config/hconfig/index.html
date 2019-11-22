@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hier_config &mdash; Hieararchical Configuration 1.6.0 documentation</title>
+  <title>hier_config.hconfig &mdash; Hieararchical Configuration 1.6.1 documentation</title>
   
 
   
@@ -17,24 +17,24 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex/" />
-    <link rel="search" title="Search" href="../../search/" /> 
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -48,7 +48,7 @@
           
 
           
-            <a href="../../" class="icon icon-home"> Hieararchical Configuration
+            <a href="../../../" class="icon icon-home"> Hieararchical Configuration
           
 
           
@@ -58,14 +58,14 @@
             
             
               <div class="version">
-                1.6.0
+                1.6.1
               </div>
             
           
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -84,7 +84,7 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../hier_config/">Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hier_config/">Code Documentation</a></li>
 </ul>
 
             
@@ -99,7 +99,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../">Hieararchical Configuration</a>
+          <a href="../../../">Hieararchical Configuration</a>
         
       </nav>
 
@@ -128,11 +128,11 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../">Docs</a> &raquo;</li>
+      <li><a href="../../../">Docs</a> &raquo;</li>
         
-          <li><a href="../">Module code</a> &raquo;</li>
+          <li><a href="../../">Module code</a> &raquo;</li>
         
-      <li>hier_config</li>
+      <li>hier_config.hconfig</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -147,15 +147,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for hier_config</h1><div class="highlight"><pre>
+  <h1>Source code for hier_config.hconfig</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">hier_config.base</span> <span class="k">import</span> <span class="n">HConfigBase</span>
 
 <span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;1.6.0&#39;</span>
 
-
-<div class="viewcode-block" id="HConfig"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig">[docs]</a><span class="k">class</span> <span class="nc">HConfig</span><span class="p">(</span><span class="n">HConfigBase</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig">[docs]</a><span class="k">class</span> <span class="nc">HConfig</span><span class="p">(</span><span class="n">HConfigBase</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class for representing and comparing Cisco configurations in a</span>
@@ -281,20 +279,20 @@
                 <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="kc">True</span>
 
-<div class="viewcode-block" id="HConfig.merge"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.merge"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Merges two HConfig objects &quot;&quot;&quot;</span>
 
         <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_deep_copy_of</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">merged</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="HConfig.load_from_file"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.load_from_file">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.load_from_file"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.load_from_file">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Load configuration text from a file &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">config_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_from_string</span><span class="p">(</span><span class="n">config_text</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="HConfig.load_from_string"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.load_from_string">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_text</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.load_from_string"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.load_from_string">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_text</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Create Hierarchical Configuration nested objects from text &quot;&quot;&quot;</span>
 
         <span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;full_text_sub&#39;</span><span class="p">]:</span>
@@ -403,7 +401,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="HConfig.load_from_dump"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.load_from_dump">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dump</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.load_from_dump"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.load_from_dump">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dump</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a HConfig dump</span>
 
@@ -447,7 +445,7 @@
             <span class="n">obj</span><span class="o">.</span><span class="n">new_in_config</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;new_in_config&#39;</span><span class="p">]</span>
             <span class="n">last_item</span> <span class="o">=</span> <span class="n">obj</span></div>
 
-<div class="viewcode-block" id="HConfig.dump"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lineage_rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.dump"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lineage_rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dump a list of loaded HConfig data</span>
 
@@ -484,7 +482,7 @@
 
         <span class="k">return</span> <span class="n">output</span></div>
 
-<div class="viewcode-block" id="HConfig.add_tags"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.add_tags">[docs]</a>    <span class="k">def</span> <span class="nf">add_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag_rules</span><span class="p">,</span> <span class="n">strip_negation</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.add_tags"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.add_tags">[docs]</a>    <span class="k">def</span> <span class="nf">add_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag_rules</span><span class="p">,</span> <span class="n">strip_negation</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Handler for tagging sections of Hierarchical Configuration data structure</span>
 <span class="sd">        for inclusion and exclusion.</span>
@@ -499,7 +497,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="HConfig.depth"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.depth">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="HConfig.depth"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.depth">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">depth</span><span class="p">():</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
@@ -544,7 +542,7 @@
                     <span class="n">acl</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-<div class="viewcode-block" id="HConfig.all_children_sorted_with_lineage_rules"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.all_children_sorted_with_lineage_rules">[docs]</a>    <span class="k">def</span> <span class="nf">all_children_sorted_with_lineage_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.all_children_sorted_with_lineage_rules"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.all_children_sorted_with_lineage_rules">[docs]</a>    <span class="k">def</span> <span class="nf">all_children_sorted_with_lineage_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Args:</span>
@@ -576,7 +574,7 @@
                             <span class="n">yielded</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ancestor</span><span class="p">)</span>
                         <span class="k">break</span></div>
 
-<div class="viewcode-block" id="HConfig.add_ancestor_copy_of"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.add_ancestor_copy_of">[docs]</a>    <span class="k">def</span> <span class="nf">add_ancestor_copy_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_to_add</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.add_ancestor_copy_of"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.add_ancestor_copy_of">[docs]</a>    <span class="k">def</span> <span class="nf">add_ancestor_copy_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_to_add</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a copy of the ancestry of parent_to_add to self</span>
 <span class="sd">        and return the deepest child which is equivalent to parent_to_add</span>
@@ -593,7 +591,7 @@
 
         <span class="k">return</span> <span class="n">base</span></div>
 
-<div class="viewcode-block" id="HConfig.set_order_weight"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.set_order_weight">[docs]</a>    <span class="k">def</span> <span class="nf">set_order_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.set_order_weight"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.set_order_weight">[docs]</a>    <span class="k">def</span> <span class="nf">set_order_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets self.order integer on all children</span>
 
@@ -604,7 +602,7 @@
                 <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">lineage_test</span><span class="p">(</span><span class="n">rule</span><span class="p">):</span>
                     <span class="n">child</span><span class="o">.</span><span class="n">order_weight</span> <span class="o">=</span> <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;order&#39;</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="HConfig.add_sectional_exiting"><a class="viewcode-back" href="../../hier_config/hier_config/#hier_config.HConfig.add_sectional_exiting">[docs]</a>    <span class="k">def</span> <span class="nf">add_sectional_exiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="HConfig.add_sectional_exiting"><a class="viewcode-back" href="../../../hier_config/hier_config/#hier_config.hconfig.HConfig.add_sectional_exiting">[docs]</a>    <span class="k">def</span> <span class="nf">add_sectional_exiting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adds the sectional exiting text as a child</span>
 
