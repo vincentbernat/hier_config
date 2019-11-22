@@ -17,32 +17,34 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -415,8 +417,8 @@
             <span class="c1"># This removes negations for each section but honestly,</span>
             <span class="c1"># we really only need to do this on the last one</span>
             <span class="k">if</span> <span class="n">strip_negation</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;no &#39;</span><span class="p">):</span>
-                    <span class="n">text</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+                <span class="k">if</span> <span class="n">section</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;negation&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">):</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;negation&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">):]</span>
                 <span class="k">elif</span> <span class="n">section</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;default &#39;</span><span class="p">):</span>
                     <span class="n">text</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>
                 <span class="k">else</span><span class="p">:</span>
@@ -486,7 +488,7 @@
 
         <span class="k">for</span> <span class="n">self_child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
             <span class="c1"># Not dealing with negations and defaults for now</span>
-            <span class="k">if</span> <span class="n">self_child</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">&#39;no &#39;</span><span class="p">,</span> <span class="s1">&#39;default &#39;</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">self_child</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;negation&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;default &#39;</span><span class="p">)):</span>
                 <span class="k">continue</span>
 
             <span class="n">target_child</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">get_child</span><span class="p">(</span><span class="s1">&#39;equals&#39;</span><span class="p">,</span> <span class="n">self_child</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
@@ -630,26 +632,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

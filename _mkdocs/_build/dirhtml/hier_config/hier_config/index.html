@@ -17,33 +17,35 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
     <link rel="prev" title="hier_config" href="../modules/" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -176,84 +178,78 @@
 <span id="hier-config-base-module"></span><h2>hier_config.base module<a class="headerlink" href="#module-hier_config.base" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hier_config.base.HConfigBase">
-<em class="property">class </em><code class="descclassname">hier_config.base.</code><code class="descname">HConfigBase</code><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hier_config.base.</code><code class="sig-name descname">HConfigBase</code><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.add_child">
-<code class="descname">add_child</code><span class="sig-paren">(</span><em>text</em>, <em>alert_on_duplicate=False</em>, <em>idx=None</em>, <em>force_duplicate=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_child" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_child</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">alert_on_duplicate=False</em>, <em class="sig-param">idx=None</em>, <em class="sig-param">force_duplicate=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_child" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a child instance of HConfigChild</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.add_children">
-<code class="descname">add_children</code><span class="sig-paren">(</span><em>lines</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_children" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_children</code><span class="sig-paren">(</span><em class="sig-param">lines</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add child instances of HConfigChild</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lines</strong> – HConfigChild object -&gt; type list</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lines</strong> – HConfigChild object -&gt; type list</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.add_deep_copy_of">
-<code class="descname">add_deep_copy_of</code><span class="sig-paren">(</span><em>child_to_add</em>, <em>merged=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_deep_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_deep_copy_of" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_deep_copy_of</code><span class="sig-paren">(</span><em class="sig-param">child_to_add</em>, <em class="sig-param">merged=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_deep_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_deep_copy_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a nested copy of a child to self</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>child_to_add</strong> – type HConfigCHild</li>
-<li><strong>merged</strong> – type boolean, default False</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>child_to_add</strong> – type HConfigCHild</p></li>
+<li><p><strong>merged</strong> – type boolean, default False</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">new_child</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>new_child</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.add_shallow_copy_of">
-<code class="descname">add_shallow_copy_of</code><span class="sig-paren">(</span><em>child_to_add</em>, <em>merged=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_shallow_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_shallow_copy_of" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_shallow_copy_of</code><span class="sig-paren">(</span><em class="sig-param">child_to_add</em>, <em class="sig-param">merged=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.add_shallow_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.add_shallow_copy_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a nested copy of a child_to_add to self.children</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.all_children">
-<code class="descname">all_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">all_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursively find and yield all children</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.all_children_sorted">
-<code class="descname">all_children_sorted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children_sorted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children_sorted" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">all_children_sorted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children_sorted"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children_sorted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursively find and yield all children sorted at each hierarchy</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.all_children_sorted_by_tags">
-<code class="descname">all_children_sorted_by_tags</code><span class="sig-paren">(</span><em>include_tags</em>, <em>exclude_tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children_sorted_by_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children_sorted_by_tags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">all_children_sorted_by_tags</code><span class="sig-paren">(</span><em class="sig-param">include_tags</em>, <em class="sig-param">exclude_tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children_sorted_by_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children_sorted_by_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yield all children recursively that match include/exlcude tags</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.all_children_sorted_untagged">
-<code class="descname">all_children_sorted_untagged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children_sorted_untagged"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children_sorted_untagged" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">all_children_sorted_untagged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.all_children_sorted_untagged"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.all_children_sorted_untagged" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yield all children recursively that are untagged</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.config_to_get_to">
-<code class="descname">config_to_get_to</code><span class="sig-paren">(</span><em>target</em>, <em>delta=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.config_to_get_to"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.config_to_get_to" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">config_to_get_to</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">delta=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.config_to_get_to"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.config_to_get_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Figures out what commands need to be executed to transition from self to target.
 self is the source data structure(i.e. the running_config),
 target is the destination(i.e. compiled_config)</p>
@@ -261,96 +257,91 @@ target is the destination(i.e. compiled_config)</p>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.del_child">
-<code class="descname">del_child</code><span class="sig-paren">(</span><em>child</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.del_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.del_child" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">del_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.del_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.del_child" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a child from self.children and self.children_dict</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>child</strong> – HConfigChild object</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> – HConfigChild object</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.del_child_by_text">
-<code class="descname">del_child_by_text</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.del_child_by_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.del_child_by_text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">del_child_by_text</code><span class="sig-paren">(</span><em class="sig-param">text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.del_child_by_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.del_child_by_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete all children with the provided text</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.difference">
-<code class="descname">difference</code><span class="sig-paren">(</span><em>target</em>, <em>delta=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.difference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.difference" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param">target</em>, <em class="sig-param">delta=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.difference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.difference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new HConfig object with the config from self that is not in target</p>
 <p>Example usage:
 whats in the config.lines v.s. in running config
 i.e. did all my configuration changes get written to the running config</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>target</strong> – HConfig - The configuration to check against</li>
-<li><strong>delta</strong> – HConfig - The elements from self that are not in target</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> – HConfig - The configuration to check against</p></li>
+<li><p><strong>delta</strong> – HConfig - The elements from self that are not in target</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">HConfig - missing config additions</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HConfig - missing config additions</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.get_child">
-<code class="descname">get_child</code><span class="sig-paren">(</span><em>test</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.get_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.get_child" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_child</code><span class="sig-paren">(</span><em class="sig-param">test</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.get_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.get_child" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find a child by TextMatch rule. If it is not found, return None</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.get_child_deep">
-<code class="descname">get_child_deep</code><span class="sig-paren">(</span><em>test_expression_pairs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.get_child_deep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.get_child_deep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_child_deep</code><span class="sig-paren">(</span><em class="sig-param">test_expression_pairs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.get_child_deep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.get_child_deep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find a child recursively with a list of test/expression pairs</p>
 <p>e.g.</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">hier_obj</span><span class="o">.</span><span class="n">get_child_deep</span><span class="p">([(</span><span class="s1">&#39;equals&#39;</span><span class="p">,</span> <span class="s1">&#39;control-plane&#39;</span><span class="p">),</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">hier_obj</span><span class="o">.</span><span class="n">get_child_deep</span><span class="p">([(</span><span class="s1">&#39;equals&#39;</span><span class="p">,</span> <span class="s1">&#39;control-plane&#39;</span><span class="p">),</span>
                                   <span class="p">(</span><span class="s1">&#39;equals&#39;</span><span class="p">,</span> <span class="s1">&#39;service-policy input system-cpp-policy&#39;</span><span class="p">)])</span>
 </pre></div>
 </div>
 <p>Returns:</p>
 <blockquote>
-<div>HConfigChild or None</div></blockquote>
+<div><p>HConfigChild or None</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.get_children">
-<code class="descname">get_children</code><span class="sig-paren">(</span><em>test</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.get_children" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_children</code><span class="sig-paren">(</span><em class="sig-param">test</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.get_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find all children matching a TextMatch rule and return them.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.has_children">
-<code class="descname">has_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.has_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.has_children" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.has_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.has_children" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.lineage_test">
-<code class="descname">lineage_test</code><span class="sig-paren">(</span><em>rule</em>, <em>strip_negation=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.lineage_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.lineage_test" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lineage_test</code><span class="sig-paren">(</span><em class="sig-param">rule</em>, <em class="sig-param">strip_negation=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.lineage_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.lineage_test" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generic test against a lineage of HConfigChild objects</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.rebuild_children_dict">
-<code class="descname">rebuild_children_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.rebuild_children_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.rebuild_children_dict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rebuild_children_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.rebuild_children_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.rebuild_children_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rebuild self.children_dict</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.to_tag_spec">
-<code class="descname">to_tag_spec</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.to_tag_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.to_tag_spec" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_tag_spec</code><span class="sig-paren">(</span><em class="sig-param">tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.to_tag_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.to_tag_spec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the configuration as a tag spec definition</p>
 <p>This is handy when you have a segment of config and need to
 generate a tag spec to tag configuration in another instance</p>
@@ -358,7 +349,7 @@ generate a tag spec to tag configuration in another instance</p>
 
 <dl class="method">
 <dt id="hier_config.base.HConfigBase.with_tags">
-<code class="descname">with_tags</code><span class="sig-paren">(</span><em>tags</em>, <em>new_instance=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.with_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.with_tags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">with_tags</code><span class="sig-paren">(</span><em class="sig-param">tags</em>, <em class="sig-param">new_instance=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/base/#HConfigBase.with_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.base.HConfigBase.with_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance containing only sub-objects
 with one of the tags in tags</p>
 </dd></dl>
@@ -370,85 +361,83 @@ with one of the tags in tags</p>
 <span id="hier-config-hc-child-module"></span><h2>hier_config.hc_child module<a class="headerlink" href="#module-hier_config.hc_child" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hier_config.hc_child.HConfigChild">
-<em class="property">class </em><code class="descclassname">hier_config.hc_child.</code><code class="descname">HConfigChild</code><span class="sig-paren">(</span><em>parent</em>, <em>text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hier_config.hc_child.</code><code class="sig-name descname">HConfigChild</code><span class="sig-paren">(</span><em class="sig-param">parent</em>, <em class="sig-param">text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hier_config.base.HConfigBase" title="hier_config.base.HConfigBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.base.HConfigBase</span></code></a></p>
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.append_tags">
-<code class="descname">append_tags</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.append_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.append_tags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">append_tags</code><span class="sig-paren">(</span><em class="sig-param">tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.append_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.append_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add tags to self.tags</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.cisco_style_text">
-<code class="descname">cisco_style_text</code><span class="sig-paren">(</span><em>style='without_comments'</em>, <em>tag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.cisco_style_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.cisco_style_text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cisco_style_text</code><span class="sig-paren">(</span><em class="sig-param">style='without_comments'</em>, <em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.cisco_style_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.cisco_style_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a Cisco style formated line i.e. indentation_level + text ! comments</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete the current object from its parent</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.depth">
-<code class="descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.depth" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.host">
-<code class="descname">host</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.host" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">host</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.host" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.is_branch">
-<code class="descname">is_branch</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.is_branch" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">is_branch</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.is_branch" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.is_idempotent_command">
-<code class="descname">is_idempotent_command</code><span class="sig-paren">(</span><em>other_children</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.is_idempotent_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.is_idempotent_command" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_idempotent_command</code><span class="sig-paren">(</span><em class="sig-param">other_children</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.is_idempotent_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.is_idempotent_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if self.text is an idempotent change.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other_children</strong> – HConfigChild object -&gt; type list</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other_children</strong> – HConfigChild object -&gt; type list</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>boolean</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.is_leaf">
-<code class="descname">is_leaf</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.is_leaf" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">is_leaf</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.is_leaf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.line_inclusion_test">
-<code class="descname">line_inclusion_test</code><span class="sig-paren">(</span><em>include_tags</em>, <em>exclude_tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.line_inclusion_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.line_inclusion_test" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">line_inclusion_test</code><span class="sig-paren">(</span><em class="sig-param">include_tags</em>, <em class="sig-param">exclude_tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.line_inclusion_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.line_inclusion_test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given the line_tags, include_tags, and exclude_tags,
 determine if the line should be included</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.lineage">
-<code class="descname">lineage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.lineage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.lineage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lineage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.lineage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.lineage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the lineage of parent objects, up to but excluding the root</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.logs">
-<code class="descname">logs</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.logs" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">logs</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.logs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.move">
-<code class="descname">move</code><span class="sig-paren">(</span><em>new_parent</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.move" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param">new_parent</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>move one HConfigChild object to different HConfig parent object</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hier1</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hier1</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
 <span class="n">interface1</span> <span class="o">=</span> <span class="n">hier1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="s1">&#39;interface Vlan2&#39;</span><span class="p">)</span>
 <span class="n">interface1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="s1">&#39;ip address 10.0.0.1 255.255.255.252&#39;</span><span class="p">)</span>
 
@@ -457,74 +446,72 @@ determine if the line should be included</p>
 <span class="n">interface1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">hier2</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_parent</strong> – HConfigChild object -&gt; type list</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>new_parent</strong> – HConfigChild object -&gt; type list</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.negate">
-<code class="descname">negate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.negate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.negate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">negate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.negate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.negate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Negate self.text</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.options">
-<code class="descname">options</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.options" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.overwrite_with">
-<code class="descname">overwrite_with</code><span class="sig-paren">(</span><em>other</em>, <em>delta</em>, <em>negate=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.overwrite_with"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.overwrite_with" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">overwrite_with</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">delta</em>, <em class="sig-param">negate=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.overwrite_with"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.overwrite_with" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes delta.child[self.text], adds a deep copy of self to delta</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.path">
-<code class="descname">path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.path" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of the text instance variables from self.lineage</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.remove_tags">
-<code class="descname">remove_tags</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.remove_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.remove_tags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove_tags</code><span class="sig-paren">(</span><em class="sig-param">tags</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.remove_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.remove_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove tags from self.tags</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.root">
-<code class="descname">root</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.root" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">root</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.root" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the HConfig object at the base of the tree</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.sectional_overwrite_check">
-<code class="descname">sectional_overwrite_check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.sectional_overwrite_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.sectional_overwrite_check" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sectional_overwrite_check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.sectional_overwrite_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.sectional_overwrite_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines if self.text matches a sectional overwrite rule</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.sectional_overwrite_no_negate_check">
-<code class="descname">sectional_overwrite_no_negate_check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.sectional_overwrite_no_negate_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.sectional_overwrite_no_negate_check" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sectional_overwrite_no_negate_check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/hc_child/#HConfigChild.sectional_overwrite_no_negate_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.hc_child.HConfigChild.sectional_overwrite_no_negate_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check self’s text to see if negation should be handled by
 overwriting the section without first negating it</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.tags">
-<code class="descname">tags</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.tags" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">tags</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.tags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.hc_child.HConfigChild.text">
-<code class="descname">text</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.text" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">text</code><a class="headerlink" href="#hier_config.hc_child.HConfigChild.text" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -535,7 +522,7 @@ overwriting the section without first negating it</p>
 <p>Place any reusable functions for parsing HConfig object here</p>
 <dl class="function">
 <dt id="hier_config.helpers.to_list">
-<code class="descclassname">hier_config.helpers.</code><code class="descname">to_list</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/helpers/#to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.helpers.to_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">hier_config.helpers.</code><code class="sig-name descname">to_list</code><span class="sig-paren">(</span><em class="sig-param">obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/helpers/#to_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.helpers.to_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -543,14 +530,14 @@ overwriting the section without first negating it</p>
 <span id="hier-config-host-module"></span><h2>hier_config.host module<a class="headerlink" href="#module-hier_config.host" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hier_config.host.Host">
-<em class="property">class </em><code class="descclassname">hier_config.host.</code><code class="descname">Host</code><span class="sig-paren">(</span><em>hostname</em>, <em>os</em>, <em>hconfig_options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hier_config.host.</code><code class="sig-name descname">Host</code><span class="sig-paren">(</span><em class="sig-param">hostname</em>, <em class="sig-param">os</em>, <em class="sig-param">hconfig_options</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A host object is a convenient way to loading host inventory
 items into a single object.</p>
 <p>The default is to load “hostname”, “os”, and “options” to the host object,
 however, it can easily be extended for developer needs.</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="k">import</span> <span class="n">Host</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="kn">import</span> <span class="n">Host</span>
 
 <span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
 <span class="n">host</span> <span class="o">=</span> <span class="n">Host</span><span class="p">(</span><span class="s1">&#39;example.rtr&#39;</span><span class="p">,</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
@@ -572,175 +559,144 @@ however, it can easily be extended for developer needs.</p>
 <span class="n">host</span><span class="o">.</span><span class="n">filter_remediation</span><span class="p">(</span><span class="n">include_tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;safe&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>hostname</strong> – type str</li>
-<li><strong>os</strong> – type str</li>
-<li><strong>hconfig_options</strong> – type dict</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hostname</strong> – type str</p></li>
+<li><p><strong>os</strong> – type str</p></li>
+<li><p><strong>hconfig_options</strong> – type dict</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Host Object</p>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Host Object</p>
+</dd>
+</dl>
+<dl class="method">
 <dt id="hier_config.host.Host.compiled_config">
-<code class="descname">compiled_config</code><a class="headerlink" href="#hier_config.host.Host.compiled_config" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">compiled_config</code><a class="headerlink" href="#hier_config.host.Host.compiled_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>compiled configuration property</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._compiled_config -&gt; type HConfig Object or None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self._compiled_config -&gt; type HConfig Object or None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.host.Host.filter_remediation">
-<code class="descname">filter_remediation</code><span class="sig-paren">(</span><em>include_tags=None</em>, <em>exclude_tags=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.filter_remediation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.filter_remediation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter_remediation</code><span class="sig-paren">(</span><em class="sig-param">include_tags=None</em>, <em class="sig-param">exclude_tags=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.filter_remediation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.filter_remediation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run filter jobs, based on tags on self.remediation_config</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>include_tags</strong> – type list</li>
-<li><strong>exclude_tags</strong> – type list</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include_tags</strong> – type list</p></li>
+<li><p><strong>exclude_tags</strong> – type list</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">self.facts[‘remediation_conig_raw’] -&gt; type str</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self.facts[‘remediation_conig_raw’] -&gt; type str</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.host.Host.hconfig_tags">
-<code class="descname">hconfig_tags</code><a class="headerlink" href="#hier_config.host.Host.hconfig_tags" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">hconfig_tags</code><a class="headerlink" href="#hier_config.host.Host.hconfig_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>hier-config tags property</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._hconfig_tags -&gt; type list of dicts</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self._hconfig_tags -&gt; type list of dicts</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.host.Host.load_config_from">
-<code class="descname">load_config_from</code><span class="sig-paren">(</span><em>config_type</em>, <em>name</em>, <em>load_file=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.load_config_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.load_config_from" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_config_from</code><span class="sig-paren">(</span><em class="sig-param">config_type</em>, <em class="sig-param">name</em>, <em class="sig-param">load_file=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.load_config_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.load_config_from" title="Permalink to this definition">¶</a></dt>
 <dd><ol class="arabic simple">
-<li>Loads a running config or a compiled config into a Host object</li>
-<li>Sets host.facts[‘running_config_raw’] or host.facts[‘compiled_config_raw’]</li>
-<li>Loads the config into HConfig</li>
-<li>Sets the loaded hier-config in host.facts[‘running_config’] or host.facts[‘compiled_config’]</li>
+<li><p>Loads a running config or a compiled config into a Host object</p></li>
+<li><p>Sets host.facts[‘running_config_raw’] or host.facts[‘compiled_config_raw’]</p></li>
+<li><p>Loads the config into HConfig</p></li>
+<li><p>Sets the loaded hier-config in host.facts[‘running_config’] or host.facts[‘compiled_config’]</p></li>
 </ol>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>config_type</strong> – ‘running’ or ‘compiled’ -&gt; type str</li>
-<li><strong>name</strong> – file name or config text string to load -&gt; type str</li>
-<li><strong>load_file</strong> – default, True -&gt; type bool</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_type</strong> – ‘running’ or ‘compiled’ -&gt; type str</p></li>
+<li><p><strong>name</strong> – file name or config text string to load -&gt; type str</p></li>
+<li><p><strong>load_file</strong> – default, True -&gt; type bool</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">self.running_config or self.compiled_config</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self.running_config or self.compiled_config</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.host.Host.load_remediation">
-<code class="descname">load_remediation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.load_remediation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.load_remediation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_remediation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.load_remediation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.load_remediation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Once self.running_config and self.compled_config have been created,
 create self.remediation_config</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self.remediation_config</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self.remediation_config</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.host.Host.load_tags">
-<code class="descname">load_tags</code><span class="sig-paren">(</span><em>name</em>, <em>load_file=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.load_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.load_tags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_tags</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">load_file=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/host/#Host.load_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.host.Host.load_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads lineage rules into host.facts[“hconfig_tags”]</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>Specify to load lineage rules from a file.</dd>
+<dl class="simple">
+<dt>Example:</dt><dd><p>Specify to load lineage rules from a file.</p>
+</dd>
 </dl>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="s1">&#39;tags_ios.yml&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="s1">&#39;tags_ios.yml&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd>Specify to load lineage rules from a dictionary.</dd>
+<dl class="simple">
+<dt>Example:</dt><dd><p>Specify to load lineage rules from a dictionary.</p>
+</dd>
 </dl>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;lineage&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;startswith&quot;</span><span class="p">:</span> <span class="s2">&quot;interface&quot;</span><span class="p">}],</span> <span class="s2">&quot;add_tags&quot;</span><span class="p">:</span> <span class="s2">&quot;interfaces&quot;</span><span class="p">}]</span>
-<span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;lineage&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;startswith&quot;</span><span class="p">:</span> <span class="s2">&quot;interface&quot;</span><span class="p">}],</span> <span class="s2">&quot;add_tags&quot;</span><span class="p">:</span> <span class="s2">&quot;interfaces&quot;</span><span class="p">}]</span>
+<span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>name</strong> – tags from a file or dictionary</li>
-<li><strong>load_file</strong> – default, True -&gt; type bool</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – tags from a file or dictionary</p></li>
+<li><p><strong>load_file</strong> – default, True -&gt; type bool</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">self.hconfig_tags</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>self.hconfig_tags</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.host.Host.remediation_config">
-<code class="descname">remediation_config</code><a class="headerlink" href="#hier_config.host.Host.remediation_config" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">remediation_config</code><a class="headerlink" href="#hier_config.host.Host.remediation_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>remediation configuration property</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._remediation_config -&gt; type HConfig Object or None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self._remediation_config -&gt; type HConfig Object or None</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.host.Host.running_config">
-<code class="descname">running_config</code><a class="headerlink" href="#hier_config.host.Host.running_config" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">running_config</code><a class="headerlink" href="#hier_config.host.Host.running_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>running configuration property</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">self._running_config -&gt; type HConfig Object or None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self._running_config -&gt; type HConfig Object or None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -750,61 +706,61 @@ create self.remediation_config</p>
 <span id="hier-config-text-match-module"></span><h2>hier_config.text_match module<a class="headerlink" href="#module-hier_config.text_match" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hier_config.text_match.TextMatch">
-<em class="property">class </em><code class="descclassname">hier_config.text_match.</code><code class="descname">TextMatch</code><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">TextMatch</code><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Provides a suite of text matching methods</p>
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.anything">
-<em class="property">static </em><code class="descname">anything</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.anything"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.anything" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">anything</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.anything"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.anything" title="Permalink to this definition">¶</a></dt>
 <dd><p>Always returns True</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.contains">
-<em class="property">static </em><code class="descname">contains</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.contains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.contains" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">contains</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.contains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text contains test</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.contains_or_endswith">
-<em class="property">static </em><code class="descname">contains_or_endswith</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em>, <em>with_pad=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.contains_or_endswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.contains_or_endswith" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">contains_or_endswith</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em>, <em class="sig-param">with_pad=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.contains_or_endswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.contains_or_endswith" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text contains test</p>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.dict_call">
-<em class="property">classmethod </em><code class="descname">dict_call</code><span class="sig-paren">(</span><em>test</em>, <em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.dict_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.dict_call" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">dict_call</code><span class="sig-paren">(</span><em class="sig-param">test</em>, <em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.dict_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.dict_call" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows test methods to be called easily from variables</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.endswith">
-<em class="property">static </em><code class="descname">endswith</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.endswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.endswith" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">endswith</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.endswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.endswith" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text ends with test</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.equals">
-<em class="property">static </em><code class="descname">equals</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.equals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.equals" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">equals</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.equals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.equals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text equivalence test</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.nothing">
-<em class="property">static </em><code class="descname">nothing</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.nothing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.nothing" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">nothing</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.nothing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.nothing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Always returns False</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.re_search">
-<em class="property">static </em><code class="descname">re_search</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.re_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.re_search" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">re_search</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.re_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.re_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test regex match. This method is comparatively
 very slow and should be avoided where possible.</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.text_match.TextMatch.startswith">
-<em class="property">static </em><code class="descname">startswith</code><span class="sig-paren">(</span><em>text</em>, <em>expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.startswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.startswith" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">startswith</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">expression</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/text_match/#TextMatch.startswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.TextMatch.startswith" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text starts with test</p>
 </dd></dl>
 
@@ -815,15 +771,15 @@ very slow and should be avoided where possible.</p>
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hier_config" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="hier_config.HConfig">
-<em class="property">class </em><code class="descclassname">hier_config.</code><code class="descname">HConfig</code><span class="sig-paren">(</span><em>hostname=None</em>, <em>os=None</em>, <em>options=None</em>, <em>host=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">hier_config.</code><code class="sig-name descname">HConfig</code><span class="sig-paren">(</span><em class="sig-param">hostname=None</em>, <em class="sig-param">os=None</em>, <em class="sig-param">options=None</em>, <em class="sig-param">host=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hier_config.base.HConfigBase" title="hier_config.base.HConfigBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.base.HConfigBase</span></code></a></p>
 <p>A class for representing and comparing Cisco configurations in a
 hierarchical tree data structure.</p>
 <p>Example usage:</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup basic environment</span>
 
-<span class="kn">from</span> <span class="nn">hier_config</span> <span class="k">import</span> <span class="n">HConfig</span>
-<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="k">import</span> <span class="n">Host</span>
+<span class="kn">from</span> <span class="nn">hier_config</span> <span class="kn">import</span> <span class="n">HConfig</span>
+<span class="kn">from</span> <span class="nn">hier_config.host</span> <span class="kn">import</span> <span class="n">Host</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 
 <span class="n">options</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./tests/files/test_options_ios.yml&#39;</span><span class="p">))</span>
@@ -844,7 +800,7 @@ hierarchical tree data structure.</p>
 <span class="n">remediation_config_hier</span> <span class="o">=</span> <span class="n">running_config_hier</span><span class="o">.</span><span class="n">config_to_get_to</span><span class="p">(</span><span class="n">compiled_config_hier</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">all_children</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>See:</p>
@@ -854,55 +810,55 @@ hierarchical tree data structure.</p>
 </div></blockquote>
 <dl class="method">
 <dt id="hier_config.HConfig.add_ancestor_copy_of">
-<code class="descname">add_ancestor_copy_of</code><span class="sig-paren">(</span><em>parent_to_add</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_ancestor_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_ancestor_copy_of" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_ancestor_copy_of</code><span class="sig-paren">(</span><em class="sig-param">parent_to_add</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_ancestor_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_ancestor_copy_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a copy of the ancestry of parent_to_add to self
 and return the deepest child which is equivalent to parent_to_add</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent_to_add</strong> – type HConfig</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">base</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parent_to_add</strong> – type HConfig</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>base</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.add_sectional_exiting">
-<code class="descname">add_sectional_exiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_sectional_exiting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_sectional_exiting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_sectional_exiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_sectional_exiting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_sectional_exiting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the sectional exiting text as a child</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.add_tags">
-<code class="descname">add_tags</code><span class="sig-paren">(</span><em>tag_rules</em>, <em>strip_negation=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_tags" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_tags</code><span class="sig-paren">(</span><em class="sig-param">tag_rules</em>, <em class="sig-param">strip_negation=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.add_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.add_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handler for tagging sections of Hierarchical Configuration data structure
 for inclusion and exclusion.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.all_children_sorted_with_lineage_rules">
-<code class="descname">all_children_sorted_with_lineage_rules</code><span class="sig-paren">(</span><em>rules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.all_children_sorted_with_lineage_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.all_children_sorted_with_lineage_rules" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">all_children_sorted_with_lineage_rules</code><span class="sig-paren">(</span><em class="sig-param">rules</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.all_children_sorted_with_lineage_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.all_children_sorted_with_lineage_rules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Args:</p>
 <blockquote>
-<div>rules: list of lineage rules</div></blockquote>
+<div><p>rules: list of lineage rules</p>
+</div></blockquote>
 <p>Yields:</p>
 <blockquote>
-<div>instances of Hierarchical Configuration that match one of the lineage rules</div></blockquote>
+<div><p>instances of Hierarchical Configuration that match one of the lineage rules</p>
+</div></blockquote>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="hier_config.HConfig.depth">
-<em class="property">static </em><code class="descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.depth" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.depth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.dump">
-<code class="descname">dump</code><span class="sig-paren">(</span><em>lineage_rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.dump" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dump</code><span class="sig-paren">(</span><em class="sig-param">lineage_rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump a list of loaded HConfig data</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
     <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
     <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
     <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
@@ -911,38 +867,36 @@ for inclusion and exclusion.</p>
 <span class="p">},]</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lineage_rules</strong> – list</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lineage_rules</strong> – list</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.HConfig.host">
-<code class="descname">host</code><a class="headerlink" href="#hier_config.HConfig.host" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">host</code><a class="headerlink" href="#hier_config.HConfig.host" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.HConfig.is_branch">
-<code class="descname">is_branch</code><a class="headerlink" href="#hier_config.HConfig.is_branch" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">is_branch</code><a class="headerlink" href="#hier_config.HConfig.is_branch" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.HConfig.is_leaf">
-<code class="descname">is_leaf</code><a class="headerlink" href="#hier_config.HConfig.is_leaf" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">is_leaf</code><a class="headerlink" href="#hier_config.HConfig.is_leaf" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.load_from_dump">
-<code class="descname">load_from_dump</code><span class="sig-paren">(</span><em>dump</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_dump" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_from_dump</code><span class="sig-paren">(</span><em class="sig-param">dump</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a HConfig dump</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">=</span> <span class="p">[{</span>
     <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">depth</span><span class="p">(),</span>
     <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
     <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">tags</span><span class="p">),</span>
@@ -951,60 +905,58 @@ for inclusion and exclusion.</p>
 <span class="p">},]</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dump</strong> – list</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dump</strong> – list</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.load_from_file">
-<code class="descname">load_from_file</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load configuration text from a file</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.load_from_string">
-<code class="descname">load_from_string</code><span class="sig-paren">(</span><em>config_text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_string" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_from_string</code><span class="sig-paren">(</span><em class="sig-param">config_text</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.load_from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.load_from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create Hierarchical Configuration nested objects from text</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.HConfig.logs">
-<code class="descname">logs</code><a class="headerlink" href="#hier_config.HConfig.logs" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">logs</code><a class="headerlink" href="#hier_config.HConfig.logs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.merge">
-<code class="descname">merge</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.merge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two HConfig objects</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.HConfig.options">
-<code class="descname">options</code><a class="headerlink" href="#hier_config.HConfig.options" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#hier_config.HConfig.options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.HConfig.root">
-<code class="descname">root</code><a class="headerlink" href="#hier_config.HConfig.root" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">root</code><a class="headerlink" href="#hier_config.HConfig.root" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="hier_config.HConfig.set_order_weight">
-<code class="descname">set_order_weight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.set_order_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.set_order_weight" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_order_weight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/#HConfig.set_order_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.HConfig.set_order_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets self.order integer on all children</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hier_config.HConfig.tags">
-<code class="descname">tags</code><a class="headerlink" href="#hier_config.HConfig.tags" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">tags</code><a class="headerlink" href="#hier_config.HConfig.tags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1021,7 +973,7 @@ for inclusion and exclusion.</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../modules/" class="btn btn-neutral" title="hier_config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../modules/" class="btn btn-neutral float-left" title="hier_config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1047,26 +999,16 @@ for inclusion and exclusion.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
