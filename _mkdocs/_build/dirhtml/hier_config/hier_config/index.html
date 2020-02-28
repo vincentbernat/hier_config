@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -551,7 +551,7 @@ hierarchical tree data structure.</p>
 <span class="n">remediation_config_hier</span> <span class="o">=</span> <span class="n">running_config_hier</span><span class="o">.</span><span class="n">config_to_get_to</span><span class="p">(</span><span class="n">compiled_config_hier</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">remediation_config_hier</span><span class="o">.</span><span class="n">all_children</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">cisco_style_text</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>See:</p>
@@ -857,7 +857,7 @@ create self.remediation_config</p>
 </dd>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;lineage&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;startswith&quot;</span><span class="p">:</span> <span class="s2">&quot;interface&quot;</span><span class="p">}],</span> <span class="s2">&quot;add_tags&quot;</span><span class="p">:</span> <span class="s2">&quot;interfaces&quot;</span><span class="p">}]</span>
-<span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">host</span><span class="o">.</span><span class="n">load_tags</span><span class="p">(</span><span class="n">tags</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
