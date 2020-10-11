@@ -52,7 +52,6 @@ hier\_config.text\_match module
    :undoc-members:
    :show-inheritance:
 
-
 Module contents
 ---------------
 
