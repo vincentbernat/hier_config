@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>hier_config package &mdash; Hieararchical Configuration 2.0.0 documentation</title>
+  <title>hier_config package &mdash; Hieararchical Configuration 2.0.1 documentation</title>
   
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -62,7 +65,7 @@
             
             
               <div class="version">
-                2.0.0
+                2.0.1
               </div>
             
           
@@ -87,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../">Code Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../modules/">hier_config</a><ul class="current">
@@ -96,6 +99,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#hier-config-base-module">hier_config.base module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.child">hier_config.child module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hier-config-host-module">hier_config.host module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hier-config-options-module">hier_config.options module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.root">hier_config.root module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-hier_config.text_match">hier_config.text_match module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-contents">Module contents</a></li>
@@ -187,84 +191,84 @@
 <div class="section" id="module-hier_config.child">
 <span id="hier-config-child-module"></span><h2>hier_config.child module<a class="headerlink" href="#module-hier_config.child" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="hier_config.child.HConfigChild">
-<em class="property">class </em><code class="sig-prename descclassname">hier_config.child.</code><code class="sig-name descname">HConfigChild</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>HConfig<span class="p">, </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">HConfigChild</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">hier_config.child.</span></span><span class="sig-name descname"><span class="pre">HConfigChild</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">HConfig</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">HConfigChild</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.base.HConfigBase</span></code></p>
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.append_tag">
-<code class="sig-name descname">append_tag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tag</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.append_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.append_tag" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.append_tag">
+<span class="sig-name descname"><span class="pre">append_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.append_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.append_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a tag to self._tags on all leaf nodes</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.append_tags">
-<code class="sig-name descname">append_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">, </span>Set<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.append_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.append_tags" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.append_tags">
+<span class="sig-name descname"><span class="pre">append_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.append_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.append_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add tags to self._tags on all leaf nodes</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.cisco_style_text">
-<code class="sig-name descname">cisco_style_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">style</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'without_comments'</span></em>, <em class="sig-param"><span class="n">tag</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.cisco_style_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.cisco_style_text" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.cisco_style_text">
+<span class="sig-name descname"><span class="pre">cisco_style_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'without_comments'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.cisco_style_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.cisco_style_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a Cisco style formated line i.e. indentation_level + text ! comments</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.delete">
-<code class="sig-name descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.delete" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete the current object from its parent</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.depth">
-<code class="sig-name descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.depth" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance to the root HConfig object i.e. indent level</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.child.HConfigChild.is_branch">
-<em class="property">property </em><code class="sig-name descname">is_branch</code><a class="headerlink" href="#hier_config.child.HConfigChild.is_branch" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.is_branch">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_branch</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hier_config.child.HConfigChild.is_branch" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if there are children or is an instance of HConfig</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.is_idempotent_command">
-<code class="sig-name descname">is_idempotent_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other_children</span><span class="p">:</span> <span class="n">Iterable<span class="p">[</span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">hier_config.child.HConfigChild</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.is_idempotent_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.is_idempotent_command" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.is_idempotent_command">
+<span class="sig-name descname"><span class="pre">is_idempotent_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_children</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">hier_config.child.HConfigChild</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.is_idempotent_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.is_idempotent_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if self.text is an idempotent change.</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.child.HConfigChild.is_leaf">
-<em class="property">property </em><code class="sig-name descname">is_leaf</code><a class="headerlink" href="#hier_config.child.HConfigChild.is_leaf" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.is_leaf">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_leaf</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hier_config.child.HConfigChild.is_leaf" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if there are no children and is not an instance of HConfig</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.line_inclusion_test">
-<code class="sig-name descname">line_inclusion_test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">include_tags</span><span class="p">:</span> <span class="n">Set<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">exclude_tags</span><span class="p">:</span> <span class="n">Set<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.line_inclusion_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.line_inclusion_test" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.line_inclusion_test">
+<span class="sig-name descname"><span class="pre">line_inclusion_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_tags</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_tags</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.line_inclusion_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.line_inclusion_test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given the line_tags, include_tags, and exclude_tags,
 determine if the line should be included</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.lineage">
-<code class="sig-name descname">lineage</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">hier_config.child.HConfigChild</a><span class="p">]</span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.lineage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.lineage" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.lineage">
+<span class="sig-name descname"><span class="pre">lineage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">hier_config.child.HConfigChild</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.lineage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.lineage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yields the lineage of parent objects, up to but excluding the root</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.lineage_test">
-<code class="sig-name descname">lineage_test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rule</span><span class="p">:</span> <span class="n">dict</span></em>, <em class="sig-param"><span class="n">strip_negation</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.lineage_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.lineage_test" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.lineage_test">
+<span class="sig-name descname"><span class="pre">lineage_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strip_negation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.lineage_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.lineage_test" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generic test against a lineage of HConfigChild objects</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.child.HConfigChild.logs">
-<em class="property">property </em><code class="sig-name descname">logs</code><a class="headerlink" href="#hier_config.child.HConfigChild.logs" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.logs">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">logs</span></span><em class="property"><span class="pre">:</span> <span class="pre">List[str]</span></em><a class="headerlink" href="#hier_config.child.HConfigChild.logs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.move">
-<code class="sig-name descname">move</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_parent</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>HConfig<span class="p">, </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">HConfigChild</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.move" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_parent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">HConfig</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">HConfigChild</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>move one HConfigChild object to different HConfig parent object</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hier1</span> <span class="o">=</span> <span class="n">HConfig</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">)</span>
 <span class="n">interface1</span> <span class="o">=</span> <span class="n">hier1</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="s1">&#39;interface Vlan2&#39;</span><span class="p">)</span>
@@ -286,68 +290,68 @@ determine if the line should be included</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.negate">
-<code class="sig-name descname">negate</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">hier_config.child.HConfigChild</a><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.negate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.negate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.negate">
+<span class="sig-name descname"><span class="pre">negate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">hier_config.child.HConfigChild</span></a></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.negate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.negate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Negate self.text</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.child.HConfigChild.options">
-<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#hier_config.child.HConfigChild.options" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.options">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#hier_config.child.HConfigChild.options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.overwrite_with">
-<code class="sig-name descname">overwrite_with</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">HConfigChild</a></span></em>, <em class="sig-param"><span class="n">delta</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>HConfig<span class="p">, </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">HConfigChild</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">negate</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.overwrite_with"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.overwrite_with" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.overwrite_with">
+<span class="sig-name descname"><span class="pre">overwrite_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">HConfigChild</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">HConfig</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">HConfigChild</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.overwrite_with"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.overwrite_with" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes delta.child[self.text], adds a deep copy of self to delta</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.path">
-<code class="sig-name descname">path</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.path" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.path">
+<span class="sig-name descname"><span class="pre">path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of the text instance variables from self.lineage</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.remove_tag">
-<code class="sig-name descname">remove_tag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tag</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.remove_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.remove_tag" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.remove_tag">
+<span class="sig-name descname"><span class="pre">remove_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.remove_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.remove_tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove a tag from self._tags on all leaf nodes</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.remove_tags">
-<code class="sig-name descname">remove_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">, </span>Set<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.remove_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.remove_tags" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.remove_tags">
+<span class="sig-name descname"><span class="pre">remove_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.remove_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.remove_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove tags from self._tags on all leaf nodes</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.child.HConfigChild.root">
-<em class="property">property </em><code class="sig-name descname">root</code><a class="headerlink" href="#hier_config.child.HConfigChild.root" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.root">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">root</span></span><em class="property"><span class="pre">:</span> <span class="pre">HConfig</span></em><a class="headerlink" href="#hier_config.child.HConfigChild.root" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the HConfig object at the base of the tree</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.sectional_overwrite_check">
-<code class="sig-name descname">sectional_overwrite_check</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.sectional_overwrite_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.sectional_overwrite_check" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.sectional_overwrite_check">
+<span class="sig-name descname"><span class="pre">sectional_overwrite_check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.sectional_overwrite_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.sectional_overwrite_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines if self.text matches a sectional overwrite rule</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.child.HConfigChild.sectional_overwrite_no_negate_check">
-<code class="sig-name descname">sectional_overwrite_no_negate_check</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.sectional_overwrite_no_negate_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.child.HConfigChild.sectional_overwrite_no_negate_check" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.sectional_overwrite_no_negate_check">
+<span class="sig-name descname"><span class="pre">sectional_overwrite_no_negate_check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/child/#HConfigChild.sectional_overwrite_no_negate_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.child.HConfigChild.sectional_overwrite_no_negate_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check self’s text to see if negation should be handled by
 overwriting the section without first negating it</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.child.HConfigChild.tags">
-<em class="property">property </em><code class="sig-name descname">tags</code><a class="headerlink" href="#hier_config.child.HConfigChild.tags" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.tags">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="pre">:</span> <span class="pre">Set[Optional[str]]</span></em><a class="headerlink" href="#hier_config.child.HConfigChild.tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive access to tags on all leaf nodes</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.child.HConfigChild.text">
-<em class="property">property </em><code class="sig-name descname">text</code><a class="headerlink" href="#hier_config.child.HConfigChild.text" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.child.HConfigChild.text">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#hier_config.child.HConfigChild.text" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -356,11 +360,14 @@ overwriting the section without first negating it</p>
 <div class="section" id="hier-config-host-module">
 <h2>hier_config.host module<a class="headerlink" href="#hier-config-host-module" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="hier-config-options-module">
+<h2>hier_config.options module<a class="headerlink" href="#hier-config-options-module" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="module-hier_config.root">
 <span id="hier-config-root-module"></span><h2>hier_config.root module<a class="headerlink" href="#module-hier_config.root" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="hier_config.root.HConfig">
-<em class="property">class </em><code class="sig-prename descclassname">hier_config.root.</code><code class="sig-name descname">HConfig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">host</span><span class="p">:</span> <span class="n">Host</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">hier_config.root.</span></span><span class="sig-name descname"><span class="pre">HConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Host</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hier_config.base.HConfigBase</span></code></p>
 <p>A class for representing and comparing Cisco configurations in a
 hierarchical tree data structure.</p>
@@ -397,42 +404,42 @@ hierarchical tree data structure.</p>
 <p>for test examples of options and tags.</p>
 </div></blockquote>
 <dl class="py method">
-<dt id="hier_config.root.HConfig.add_ancestor_copy_of">
-<code class="sig-name descname">add_ancestor_copy_of</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_to_add</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">hier_config.child.HConfigChild</a></span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a><span class="p">, </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">hier_config.child.HConfigChild</a><span class="p">]</span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.add_ancestor_copy_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.add_ancestor_copy_of" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.add_ancestor_copy_of">
+<span class="sig-name descname"><span class="pre">add_ancestor_copy_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_to_add</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">hier_config.child.HConfigChild</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">hier_config.child.HConfigChild</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.add_ancestor_copy_of"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.add_ancestor_copy_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a copy of the ancestry of parent_to_add to self
 and return the deepest child which is equivalent to parent_to_add</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.add_sectional_exiting">
-<code class="sig-name descname">add_sectional_exiting</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.add_sectional_exiting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.add_sectional_exiting" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.add_sectional_exiting">
+<span class="sig-name descname"><span class="pre">add_sectional_exiting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.add_sectional_exiting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.add_sectional_exiting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the sectional exiting text as a child</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.add_tags">
-<code class="sig-name descname">add_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tag_rules</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">strip_negation</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.add_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.add_tags" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.add_tags">
+<span class="sig-name descname"><span class="pre">add_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_rules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strip_negation</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.add_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.add_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handler for tagging sections of Hierarchical Configuration data structure
 for inclusion and exclusion.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.config_to_get_to">
-<code class="sig-name descname">config_to_get_to</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a></span></em>, <em class="sig-param"><span class="n">delta</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.config_to_get_to"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.config_to_get_to" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.config_to_get_to">
+<span class="sig-name descname"><span class="pre">config_to_get_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.config_to_get_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.config_to_get_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Figures out what commands need to be executed to transition from self to target.
 self is the source data structure(i.e. the running_config),
 target is the destination(i.e. generated_config)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.depth">
-<code class="sig-name descname">depth</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.depth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.depth" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance to the root HConfig object i.e. indent level</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.difference">
-<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.difference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.difference" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.difference">
+<span class="sig-name descname"><span class="pre">difference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.difference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.difference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new HConfig object with the config from self that is not in target</p>
 <p>Example usage:
 whats in the config.lines v.s. in running config
@@ -448,84 +455,84 @@ i.e. did all my configuration changes get written to the running config</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.dump">
-<code class="sig-name descname">dump</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lineage_rules</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>dict<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>dict<span class="p">]</span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.dump" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lineage_rules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump a list of loaded HConfig data</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.root.HConfig.is_branch">
-<em class="property">property </em><code class="sig-name descname">is_branch</code><a class="headerlink" href="#hier_config.root.HConfig.is_branch" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.root.HConfig.is_branch">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_branch</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hier_config.root.HConfig.is_branch" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if there are children or is an instance of HConfig</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.root.HConfig.is_leaf">
-<em class="property">property </em><code class="sig-name descname">is_leaf</code><a class="headerlink" href="#hier_config.root.HConfig.is_leaf" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.root.HConfig.is_leaf">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_leaf</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#hier_config.root.HConfig.is_leaf" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if there are no children and is not an instance of HConfig</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.lineage">
-<code class="sig-name descname">lineage</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild">hier_config.child.HConfigChild</a><span class="p">]</span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.lineage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.lineage" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.lineage">
+<span class="sig-name descname"><span class="pre">lineage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#hier_config.child.HConfigChild" title="hier_config.child.HConfigChild"><span class="pre">hier_config.child.HConfigChild</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.lineage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.lineage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Yields the lineage of parent objects, up to but excluding the root</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.load_from_dump">
-<code class="sig-name descname">load_from_dump</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dump</span><span class="p">:</span> <span class="n">List<span class="p">[</span>dict<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.load_from_dump"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.load_from_dump" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.load_from_dump">
+<span class="sig-name descname"><span class="pre">load_from_dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dump</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.load_from_dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.load_from_dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load an HConfig dump</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.load_from_file">
-<code class="sig-name descname">load_from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>pathlib.Path<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.load_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.load_from_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.load_from_file">
+<span class="sig-name descname"><span class="pre">load_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.load_from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.load_from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load configuration text from a file</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.load_from_string">
-<code class="sig-name descname">load_from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.load_from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.load_from_string" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.load_from_string">
+<span class="sig-name descname"><span class="pre">load_from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.load_from_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.load_from_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create Hierarchical Configuration nested objects from text</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.root.HConfig.logs">
-<em class="property">property </em><code class="sig-name descname">logs</code><a class="headerlink" href="#hier_config.root.HConfig.logs" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.root.HConfig.logs">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">logs</span></span><em class="property"><span class="pre">:</span> <span class="pre">List[str]</span></em><a class="headerlink" href="#hier_config.root.HConfig.logs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.merge">
-<code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a></span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.merge" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two HConfig objects</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.root.HConfig.options">
-<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#hier_config.root.HConfig.options" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.root.HConfig.options">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#hier_config.root.HConfig.options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.root.HConfig.root">
-<em class="property">property </em><code class="sig-name descname">root</code><a class="headerlink" href="#hier_config.root.HConfig.root" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.root.HConfig.root">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">root</span></span><em class="property"><span class="pre">:</span> <span class="pre">hier_config.root.HConfig</span></em><a class="headerlink" href="#hier_config.root.HConfig.root" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the HConfig object at the base of the tree</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.set_order_weight">
-<code class="sig-name descname">set_order_weight</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../../_modules/hier_config/root/#HConfig.set_order_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.set_order_weight" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.set_order_weight">
+<span class="sig-name descname"><span class="pre">set_order_weight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.set_order_weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.set_order_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets self.order integer on all children</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="hier_config.root.HConfig.tags">
-<em class="property">property </em><code class="sig-name descname">tags</code><a class="headerlink" href="#hier_config.root.HConfig.tags" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="hier_config.root.HConfig.tags">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">tags</span></span><em class="property"><span class="pre">:</span> <span class="pre">Set[Optional[str]]</span></em><a class="headerlink" href="#hier_config.root.HConfig.tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive access to tags on all leaf nodes</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hier_config.root.HConfig.with_tags">
-<code class="sig-name descname">with_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags</span><span class="p">:</span> <span class="n">Set<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig">hier_config.root.HConfig</a><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.with_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.root.HConfig.with_tags" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.root.HConfig.with_tags">
+<span class="sig-name descname"><span class="pre">with_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#hier_config.root.HConfig" title="hier_config.root.HConfig"><span class="pre">hier_config.root.HConfig</span></a></span></span><a class="reference internal" href="../../_modules/hier_config/root/#HConfig.with_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.root.HConfig.with_tags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance containing only sub-objects
 with one of the tags in tags</p>
 </dd></dl>
@@ -536,51 +543,51 @@ with one of the tags in tags</p>
 <div class="section" id="module-hier_config.text_match">
 <span id="hier-config-text-match-module"></span><h2>hier_config.text_match module<a class="headerlink" href="#module-hier_config.text_match" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="hier_config.text_match.anything">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">anything</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#anything"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.anything" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.anything">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">anything</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#anything"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.anything" title="Permalink to this definition">¶</a></dt>
 <dd><p>Always returns True</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hier_config.text_match.contains">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">contains</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#contains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.contains" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.contains">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#contains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text contains test</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hier_config.text_match.dict_call">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">dict_call</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#dict_call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.dict_call" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.dict_call">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">dict_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#dict_call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.dict_call" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows test methods to be called easily from variables</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hier_config.text_match.endswith">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">endswith</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>Tuple<span class="p">[</span>str<span class="p">, </span><span class="p">…</span><span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#endswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.endswith" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.endswith">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">endswith</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#endswith"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.endswith" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text ends with test</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hier_config.text_match.equals">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">equals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>Set<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#equals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.equals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.equals">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">equals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#equals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.equals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text equivalence test</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hier_config.text_match.nothing">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">nothing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#nothing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.nothing" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.nothing">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">nothing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#nothing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.nothing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Always returns False</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hier_config.text_match.re_search">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">re_search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#re_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.re_search" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.re_search">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">re_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#re_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.re_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test regex match. This method is comparatively
 very slow and should be avoided where possible.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="hier_config.text_match.startswith">
-<code class="sig-prename descclassname">hier_config.text_match.</code><code class="sig-name descname">startswith</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expression</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>Tuple<span class="p">[</span>str<span class="p">, </span><span class="p">…</span><span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../../_modules/hier_config/text_match/#startswith"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hier_config.text_match.startswith" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="hier_config.text_match.startswith">
+<span class="sig-prename descclassname"><span class="pre">hier_config.text_match.</span></span><span class="sig-name descname"><span class="pre">startswith</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expression</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../_modules/hier_config/text_match/#startswith"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hier_config.text_match.startswith" title="Permalink to this definition">¶</a></dt>
 <dd><p>Text starts with test</p>
 </dd></dl>
 

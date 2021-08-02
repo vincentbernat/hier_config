@@ -28,6 +28,14 @@ hier\_config.host module
    :undoc-members:
    :show-inheritance:
 
+hier\_config.options module
+---------------------------
+
+.. automodule:: hier_config.options
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 hier\_config.root module
 ------------------------
 
