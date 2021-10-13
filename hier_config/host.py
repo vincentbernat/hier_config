@@ -103,6 +103,35 @@ class Host:
 
         return rollback
 
+    def future_config(self, include_tags: Set[str], exclude_tags: Set[str]) -> HConfig:
+        """
+        Create the future state of a configuration based on tags.
+        Instead of rendering a remediation, this method will create
+        a future configuration.
+
+        :param include_tags: set
+        :param exclude_tags: set
+        :returns: HConfig
+        """
+
+        if not all([self.running_config, self.generated_config]):
+            raise AttributeError(
+                "Missing host.running_config or host.generated_config."
+            )
+
+        has_tags = len(self.hconfig_tags) > 0
+
+        if has_tags is False:
+            return self.generated_config
+
+        running_config = self.running_config
+        running_config.add_sectional_exiting()
+        running_config.add_tags(self.hconfig_tags)
+
+        generated_config = self.running_config
+        generated_config.add_sectional_exiting()
+        generated_config.add_tags(self.hconfig_tags)
+
     @property
     def hconfig_tags(self) -> List[dict]:
         """hier-config tags property"""
