@@ -3,6 +3,9 @@
   - equals:
     - no ip http secure-server
     - no ip http server
+  add_tags: safe
+- lineage:
+  - startswith:
     - vlan
     - no vlan
   add_tags: safe

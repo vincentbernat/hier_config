@@ -103,14 +103,13 @@ class Host:
 
         return rollback
 
-    def future_config(self, include_tags: Set[str], exclude_tags: Set[str]) -> HConfig:
+    def future_config(self, include_tags: Set[str]) -> HConfig:
         """
         Create the future state of a configuration based on tags.
         Instead of rendering a remediation, this method will create
         a future configuration.
 
         :param include_tags: set
-        :param exclude_tags: set
         :returns: HConfig
         """
 
@@ -119,18 +118,32 @@ class Host:
                 "Missing host.running_config or host.generated_config."
             )
 
+        if not isinstance(include_tags, (set, list)):
+            include_tags = {include_tags}
+
         has_tags = len(self.hconfig_tags) > 0
 
         if has_tags is False:
             return self.generated_config
 
-        running_config = self.running_config
-        running_config.add_sectional_exiting()
-        running_config.add_tags(self.hconfig_tags)
-
-        generated_config = self.running_config
+        future_config = self.running_config
+        generated_config = self.generated_config
         generated_config.add_sectional_exiting()
         generated_config.add_tags(self.hconfig_tags)
+
+        for line in generated_config.all_children():
+            if include_tags == line.tags:
+                if line.depth() > 0:
+                    try:
+                        parent = future_config.add_child(line.parent.text)
+                        parent.add_child(line.text)
+                    except AttributeError:
+                        future_config.add_child(line.text)
+        future_config.add_sectional_exiting()
+        future_config.set_order_weight()
+        future_config.add_tags(self.hconfig_tags)
+
+        return future_config
 
     @property
     def hconfig_tags(self) -> List[dict]:
@@ -162,7 +175,7 @@ class Host:
         if include_tags or exclude_tags:
             children = config.all_children_sorted_by_tags(include_tags, exclude_tags)
         else:
-            children = config.all_children()
+            children = config.all_children_sorted()
 
         return "\n".join(c.cisco_style_text() for c in children)
 

@@ -42,6 +42,21 @@ class TestHost:
         assert len(self.host.rollback_config().children) > 0
         assert len(self.host_bltn_opts.rollback_config().children) > 0
 
+    def test_future_config(
+        self, running_config, generated_config, tags_ios, future_config
+    ):
+        self.host.load_running_config(running_config)
+        self.host.load_generated_config(generated_config)
+        self.host.load_tags(tags_ios)
+        future_cfg = self.host.future_config({"safe"})
+
+        assert (
+            "\n".join(
+                [line.cisco_style_text() for line in future_cfg.all_children_sorted()]
+            )
+            == future_config
+        )
+
     def test_load_tags(self, tags_ios):
         self.host.load_tags(tags_ios)
         assert len(self.host.hconfig_tags) > 0

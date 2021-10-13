@@ -15,6 +15,11 @@ def running_config():
 
 
 @pytest.fixture(scope="module")
+def future_config():
+    return open(f"{_fixture_dir()}/future_config.conf").read()
+
+
+@pytest.fixture(scope="module")
 def options_ios():
     return yaml.safe_load(open(f"{_fixture_dir()}/options_ios.yml").read())
 
