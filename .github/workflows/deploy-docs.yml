@@ -1,8 +1,11 @@
 name: deploy to github pages
 
+# on:
+#   release:
+#     types: [created]
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ master ]
 
 jobs:
   deploy:
