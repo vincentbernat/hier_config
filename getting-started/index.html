@@ -184,13 +184,12 @@ host.load_generated_config_from_file(&quot;./tests/fixtures/generated_config.con
 <p>Once the configs are loaded into the host object, a remediation can be created.</p>
 <pre><code class="language-python">host.remediation_config()
 </code></pre>
-<p><code>host.remediation_config()</code> is loaded as a python object. To view the results of the remediation, create a new variable from the <code>remediation_config()</code> object and iterate through the <code>all_children()</code> or <code>all_children_sorted()</code> function.</p>
-<pre><code class="language-python">remediation_config = host.remediation_config()
-
-for line in remediation_config.all_children_sorted():
-    print(line.cisco_style_text())
+<p><code>host.remediation_config()</code> is loaded as a python object. To view the results of the remediation, call the <code>host.remediation_config_filtered_text(include_tags={}, exclude_tags={})</code> method.</p>
+<pre><code class="language-python">print(host.remediation_config_filtered_text(include_tags={}, exclude_tags={}))
 </code></pre>
+<blockquote>
 <p>If you're using the examples from the <code>/tests/fixtures</code> folder in the <a href="https://github.com/netdevops/hier_config/">github</a> repository, you should see an output that resembles:</p>
+</blockquote>
 <pre><code class="language-text">vlan 3
   name switch_mgmt_10.0.3.0/24
 vlan 4

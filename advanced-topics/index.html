@@ -66,6 +66,34 @@
     <li class="toctree-l2"><a class="reference internal" href="#working-with-tags">Working with Tags</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hier_config-options">hier_config Options</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#style">style</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sectional_overwrite_no_negate">sectional_overwrite_no_negate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sectional_overwrite">sectional_overwrite</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ordering">ordering</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#indent_adjust">indent_adjust</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parent_allows_duplicate_child">parent_allows_duplicate_child</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sectional_exiting">sectional_exiting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#full_text_sub">full_text_sub</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#per_line_sub">per_line_sub</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#idempotent_commands_blacklist">idempotent_commands_blacklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#idempotent_commands">idempotent_commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#negation_default_when">negation_default_when</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#negation_default_with">negation_default_with</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#custom-hier_config-workflows">Custom hier_config Workflows</a>
     </li>
@@ -114,11 +142,250 @@
               
                 <h1 id="advanced-topics">Advanced Topics</h1>
 <h2 id="lineage-rules">Lineage Rules</h2>
-<p>Coming soon...</p>
+<p>Lineage rules are rules that are written in YAML. They allow users to seek out very specific sections of configurations or even seek out very generalized lines within a configuration. For example, suppose you just wanted to seek out interface descriptions. Your lineage rule would look like:</p>
+<pre><code class="language-yaml">- lineage:
+  - startswith: interface
+  - startswith: description
+</code></pre>
+<p>In the above example, a start of a lineage is defined with the <strong>- lineage:</strong> syntax. From there the interface is defined with the <strong>- startswith: interface</strong> syntax under the <strong>- lineage:</strong> umbrella. This tells hier_config to search for any configuration that starts with the string <strong>interface</strong> as the parent of a configuration line. When it finds an <strong>interface</strong> parent, it then looks at any child configuration line of the interface that starts with the string <strong>description</strong>.</p>
+<p>With lineage rules, you can get as deep into the children or as shallow as you need. Suppose you want to inspect the existence or absence of http, ssh, snmp, and logging within a configuration. This can be done with a single lineage rule, like so:</p>
+<pre><code class="language-yaml">- lineage:
+  - startswith:
+    - ip ssh
+    - no ip ssh
+    - ip http
+    - no ip http
+    - snmp-server
+    - no snmp-server
+    - logging
+    - no logging
+</code></pre>
+<p>Or suppose, you want to inspect whether BGP IPv4 AFIs are activated. You can do this with the following:</p>
+<pre><code class="language-yaml">- lineage:
+  - startswith: router bgp
+  - startswith: address-family ipv4
+  - endswith: activate
+</code></pre>
+<p>In the above example, I utilized a different keyword to look for activated BGP neighbors. The keywords that can be utilized within lineage rules are:
+- startswith
+- endswith
+- contains
+- equals
+- re_search</p>
+<p>You can also put all of the above examples together in the same set of lineage rules like so:</p>
+<pre><code class="language-yaml">- lineage:
+  - startswith: interface
+  - startswith: description
+- lineage:
+  - startswith:
+    - ip ssh
+    - no ip ssh
+    - ip http
+    - no ip http
+    - snmp-server
+    - no snmp-server
+    - logging
+    - no logging
+- lineage:
+  - startswith: router bgp
+  - startswith: address-family ipv4
+  - endswith: activate
+</code></pre>
+<p>When hier_config consumes the lineage rules, it consumes them as a list of lineage rules and processes them individually.</p>
 <h2 id="working-with-tags">Working with Tags</h2>
-<p>Coming soon...</p>
+<p>With a firm understanding of lineage rules, more complex use cases become available within hier_config. A powerful use case is the ability to tag specific sections of configuration and only display remediations based on those tags. This becomes very handy when you're attempting to execute a maintenance that only targets low risk configuration changes or isolate the more risky configuration changes to scrutinize their execution during a maintenance.</p>
+<p>Tagging expands on the use of the lineage rules by creating an <strong>add_tags</strong> keyword to a lineage rule.</p>
+<p>Suppose you had a running configuration that had an ntp configuration that looked like:</p>
+<pre><code class="language-text">ntp server 192.0.2.1 prefer version 2
+</code></pre>
+<p>However, your intended configuration utilized a publicly available NTP server on the internet:</p>
+<pre><code class="language-text">ip name-server 1.1.1.1
+ip name-server 8.8.8.8
+ntp server time.nist.gov
+</code></pre>
+<p>You could create a lineage rule that targeted that specific remediation like this:</p>
+<pre><code class="language-yaml">- lineage:
+  - startswith:
+    - ip name-server
+    - no ip name-server
+    - ntp
+    - no ntp
+  add_tags: ntp
+</code></pre>
+<p>Now we can modify the script above to load the tags and create a remediation of the said tags:</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+
+# Import the hier_config Host library
+from hier_config import Host
+
+# Create a hier_config Host object
+host = Host(hostname=&quot;aggr-example.rtr&quot;, os=&quot;ios&quot;)
+
+# Load the tagged lineage rules
+host.load_tags_from_file(&quot;./tests/fixtures/tags_ios.yml&quot;)
+
+# Load a running configuration from a file
+host.load_running_config_from_file(&quot;./tests/fixtures/running_config.conf&quot;)
+
+# Load an intended configuration from a file
+host.load_generated_config_from_file(&quot;./tests/fixtures/generated_config.conf&quot;)
+
+# Create the remediation steps
+host.remediation_config()
+
+# Display the remediation steps for only the &quot;ntp&quot; tags
+print(host.remediation_config_filtered_text(include_tags={&quot;ntp&quot;}, exclude_tags={}))
+</code></pre>
+<p>In the script, we made two changes. The first change is to load the tagged lineage rules:
+<code>host.load_tags_from_file("./tests/fixtures/tags_ios.yml")</code>.
+And the second is to filter the remediation steps by only including steps that are tagged with <strong>ntp</strong> via the <strong>include_tags</strong> argument.</p>
+<p>The remediation looks like:</p>
+<pre><code class="language-text">no ntp server 192.0.2.1 prefer version 2
+ip name-server 1.1.1.1
+ip name-server 8.8.8.8
+ntp server time.nist.gov
+</code></pre>
 <h2 id="hier_config-options">hier_config Options</h2>
-<p>Coming soon...</p>
+<p>There are a number of options that can be loaded into hier_config to make it better conform to the nuances of your network device. By default, hier_config loads a set of <a href="https://github.com/netdevops/hier_config/blob/master/hier_config/options.py">sane defaults</a> for Cisco IOS, IOS XE, IOS XR, NX-OS, and Arista EOS.</p>
+<p>Below are the configuration options available for manipulation.</p>
+<pre><code class="language-python">base_options: dict = {
+    &quot;style&quot;: None,
+    &quot;sectional_overwrite&quot;: [],
+    &quot;sectional_overwrite_no_negate&quot;: [],
+    &quot;ordering&quot;: [],
+    &quot;indent_adjust&quot;: [],
+    &quot;parent_allows_duplicate_child&quot;: [],
+    &quot;sectional_exiting&quot;: [],
+    &quot;full_text_sub&quot;: [],
+    &quot;per_line_sub&quot;: [],
+    &quot;idempotent_commands_blacklist&quot;: [],
+    &quot;idempotent_commands&quot;: [],
+    &quot;negation_default_when&quot;: [],
+    &quot;negation_negate_with&quot;: [],
+}
+</code></pre>
+<p>The default options can be completely overwritten and loaded from a yaml file, or individual components of the options can be manipulated to provide the functionality that is desired.</p>
+<p>Here is an example of manipulating the built-in options.</p>
+<pre><code class="language-python"># Import the hier_config Host library
+from hier_config import Host
+
+# Create a hier_config Host object
+host = Host(hostname=&quot;aggr-example.rtr&quot;, os=&quot;ios&quot;)
+
+# Create an NTP negation ordered lineage rule
+ordered_negate_ntp = {&quot;lineage&quot;: [{&quot;startswith&quot;: [&quot;no ntp&quot;], &quot;order&quot;: 700}]}
+
+# Update the hier_config options &quot;ordering&quot; key.
+host.hconfig_options[&quot;ordering&quot;].append(ordered_negate_ntp)
+</code></pre>
+<p>Here is an example of completely overwriting the default options and loading in your own.</p>
+<pre><code class="language-python"># import YAML
+import yaml
+
+# Import the hier_config Host library
+from hier_config import Host
+
+# Load the hier_config options into memory
+with open(&quot;./tests/fixtures/options_ios.yml&quot;) as f:
+    options = yaml.load(f.read(), Loader=yaml.SafeLoader)
+
+# Create a hier_config Host object
+host = Host(hostame=&quot;aggr-example.rtr&quot;, os=&quot;ios&quot;, hconfig_options=options)
+</code></pre>
+<p>In the following sections, I'll cover the available options.</p>
+<h4 id="style">style</h4>
+<p>The <strong>style</strong> defines the os family. Such as <strong>ios</strong>, <strong>iosxr</strong>, etc.</p>
+<p>Example:</p>
+<pre><code class="language-yaml">style: ios
+</code></pre>
+<h4 id="sectional_overwrite_no_negate">sectional_overwrite_no_negate</h4>
+<p>The sectional overwrite with no negate hier_config option will completely overwrite sections of configuration without negating them. This option is often used with the RPL sections of IOS XR devices that require that the entire RPL be re-created when making modifications to them, rather than editing individual lines within the RPL.</p>
+<p>An example of sectional overwrite with no negate is:</p>
+<pre><code class="language-yaml">sectional_overwrite_no_negate:
+- lineage:
+  - startswith: as-path-set
+- lineage:
+  - startswith: prefix-set
+- lineage:
+  - startswith: route-policy
+- lineage:
+  - startswith: extcommunity-set
+- lineage:
+  - startswith: community-set
+</code></pre>
+<h4 id="sectional_overwrite">sectional_overwrite</h4>
+<p>Sectional overwrite is just like sectional overwrite with no negate, except that hier_config will negate a section of configuration and then completely re-create it.</p>
+<h4 id="ordering">ordering</h4>
+<p>Ordering is one of the most useful hier_config options. This allows you to use lineage rules to define the order in which remediation steps are presented to the user. For the ntp example above, the ntp server was negated (<code>no ntp server 192.0.2.1</code>) before the new ntp server was added. In most cases, this wouldn't be advantageous. Thus, ordering can be used to define the proper order to execute commands.</p>
+<p>All commands are assigned a default order weight of 500, with a usable order weight of 1 - 999. The smaller the weight value, the higher on the list of steps a command is to be executed. The larger the weight value, the lower on the list of steps a command is to be executed. To create an order in which new ntp servers are added before old ntp servers are removed, you can create an order lineage that weights the negation to the bottom.</p>
+<p>Example:</p>
+<pre><code class="language-yaml">ordering:
+- lineage:
+  - startswith: no ntp
+  order: 700
+</code></pre>
+<p>With the above order lineage applied, the output of the above ntp example would look like:</p>
+<pre><code class="language-text">ip name-server 1.1.1.1
+ip name-server 8.8.8.8
+ntp server time.nist.gov
+no ntp server 192.0.2.1 prefer version 2
+</code></pre>
+<h4 id="indent_adjust">indent_adjust</h4>
+<p>coming soon...</p>
+<h4 id="parent_allows_duplicate_child">parent_allows_duplicate_child</h4>
+<p>coming soon...</p>
+<h4 id="sectional_exiting">sectional_exiting</h4>
+<p>Sectional exiting features configuration sections that have a configuration syntax that defines the end of a configuration section. Examples of this are RPL (route policy language) configurations in IOS XR or peer policy and peer session configurations in IOS BGP sections. The sectional exiting configuration allows you to define the configuration syntax so that hier_config can render a remediation that properly exits those configurations.</p>
+<p>An example of sectional exiting is:</p>
+<pre><code class="language-yaml">sectional_exiting:
+- lineage:
+  - startswith: router bgp
+  - startswith: template peer-policy
+  exit_text: exit-peer-policy
+- lineage:
+  - startswith: router bgp
+  - startswith: template peer-session
+  exit_text: exit-peer-session
+</code></pre>
+<h4 id="full_text_sub">full_text_sub</h4>
+<p>Full text sub allows for substitutions of a multi-line string. Regular expressions are commonly used and allowed in this section. An example of this would be:</p>
+<pre><code class="language-yaml">full_text_sub:
+- search: &quot;banner\s(exec|motd)\s(\S)\n(.*\n){1,}(\2)&quot;
+  replace: &quot;&quot;
+</code></pre>
+<p>This example simply searches for a banner message in the configuration and replaces it with an empty string.</p>
+<h4 id="per_line_sub">per_line_sub</h4>
+<p>Per line sub allows for substitutions of individual lines. This is commonly used to remove artifacts from a running configuration that don't provide any value when creating remediation steps.</p>
+<p>An example is removing lines such as:</p>
+<pre><code class="language-text">Building configuration...
+
+Current configuration : 3781 bytes
+</code></pre>
+<p>Per line sub can be used to remove those lines:</p>
+<pre><code class="language-yaml">per_line_sub:
+- search: &quot;Building configuration.*&quot;
+  replace: &quot;&quot;
+- search: &quot;Current configuration.*&quot;
+  replace: &quot;&quot;
+</code></pre>
+<h4 id="idempotent_commands_blacklist">idempotent_commands_blacklist</h4>
+<p>coming soon...</p>
+<h4 id="idempotent_commands">idempotent_commands</h4>
+<p>Idempotent commands are commands that can just be overwritten and don't need negation. Lineage rules can be created to define those commands that are idempotent.</p>
+<p>An example of idempotent commands are:</p>
+<pre><code class="language-yaml">idempotent_commands:
+- lineage:
+  - startswith: vlan
+  - startswith: name
+- lineage:
+  - startswith: interface
+  - startswith: description
+</code></pre>
+<p>The lineage rules above specify that defining a vlan name and updating an interface description are both idempotent commands.</p>
+<h4 id="negation_default_when">negation_default_when</h4>
+<p>coming soon...</p>
+<h4 id="negation_default_with">negation_default_with</h4>
+<p>coming soon...</p>
 <h2 id="custom-hier_config-workflows">Custom hier_config Workflows</h2>
 <p>Coming soon...</p>
               

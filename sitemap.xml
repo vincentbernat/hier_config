@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://hier_config.readthedocs.io/</loc>
-         <lastmod>2021-10-20</lastmod>
+         <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hier_config.readthedocs.io/advanced-topics/</loc>
-         <lastmod>2021-10-20</lastmod>
+         <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hier_config.readthedocs.io/experimental-features/</loc>
-         <lastmod>2021-10-20</lastmod>
+         <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hier_config.readthedocs.io/getting-started/</loc>
-         <lastmod>2021-10-20</lastmod>
+         <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hier_config.readthedocs.io/install/</loc>
-         <lastmod>2021-10-20</lastmod>
+         <lastmod>2021-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
